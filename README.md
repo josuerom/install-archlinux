@@ -92,12 +92,10 @@ Allí dentro solo debes crear 3 particiones, sin tocar las de Windows, haz lo si
 
 #### Instala el Kernel de Linux junto a unos programas necesarios.
 ```bash
-  # el siguiente es un solo comando junto, los paquetes (qtile, ranger y redshift) son opcionales
-  pacstrap -i /mnt base base-devel linux linux-lts linux-headers linux-firmware sudo nano code git
-  neofetch network-manager-applet dhcpcd brightnessctl volumeicon cbatticon lxappearance nitrogen vlc
-  bluez wpa_supplicant firefox htop alacritty ranger rofi scrot redshift qtile
+  # los paquetes últimos  (ranger rofi scrot redshift qtile y nitrogen) son opcionales
+  pacstrap -i /mnt base base-devel linux linux-lts linux-headers linux-firmware sudo nano code git neofetch network-manager-applet dhcpcd brightnessctl volumeicon cbatticon lxappearance vlc bluez wpa_supplicant firefox htop alacritty ranger rofi scrot redshift qtile nitrogen
   
-  # luego que termine, ejecute el sgt comando para conocer los archivos del sistema operativo
+  # luego que termine de instalarse todo eso, debe ejecutar el sgt comando para conocer los archivos /root del SO Arch
   ls /mnt
 ```
 
