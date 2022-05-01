@@ -1,6 +1,6 @@
 ## Comandos para Instalar ARCH LINUX en Portátiles LENOVO u otras marcas.
 
-Cordial saludo, presento está pequeña guía de instalación para Arch ya que es el sistema operativo me llama más la atención debido a que consume poca memoria RAM.
+Cordial saludo, presento esta pequeña guía de instalación para ***Arch*** ya que es el sistema operativo GNU/Linux que me llama más la atención debido a que consume poca memoria muy poco MB de memoria RAM.
 
 #### Cambia el tamaño de la fuente de la terminal por el momento de instalación:
 ```bash
