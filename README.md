@@ -1,6 +1,8 @@
 ## Comandos para Instalar ARCH LINUX en Portátiles LENOVO u otras marcas.
 
-Cordial saludo, presento esta pequeña guía de instalación para ***Arch*** ya que es el sistema operativo GNU/Linux que me llama más la atención debido a que consume poca memoria muy poco MB de memoria RAM.
+Cordial saludo, en la presente documentación comparto una guía de instalación para ***Arch Linux***, ya que es la distribución ***GNU/Linux*** que me llama más la atención debido a que consume muy pocos MegaBytes(MB) de memoria RAM.
+
+Cabe mencionarle que, los próximos comandos que verás en esta documentación, me funcionaron en mi portátil Lenovo 2021, si tu tienes alguna otra marca de portátiles, que no tengan puertos para Ethernet, y quieras instalar Arch junto a tu SO Windows, esta guía es para tí y te funcionará.
 
 #### Cambia el tamaño de la fuente de la terminal por el momento de instalación:
 ```bash
