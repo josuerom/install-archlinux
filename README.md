@@ -122,8 +122,9 @@ Allí dentro solo debes crear 3 particiones, sin tocar las de Windows, haz lo si
 ```
 
 #### Establezca el idioma para el SO Arch Linux:
-```bash  
-  nano /etc/locale.gen (descomente la línea es_CO.UTF-8 UTF-8)
+```bash
+  # abra el archvip locale.gen y descomente la línea (#es_CO.UTF-8 UTF-8)
+  nano /etc/locale.gen
   locale-gen
   echo LANG=es_CO.UTF-8 > /etc/locale.conf
   export LANG= es_CO.UTF-8
@@ -149,9 +150,9 @@ Allí dentro solo debes crear 3 particiones, sin tocar las de Windows, haz lo si
   nano /etc/default/grub (descomente la última línea nada más)
 
   # ahora ejecute este
-  grub-install--target=x86_64-efi--bootloader-id=’Arch Linux’ –recheck
-  # si ese da error, ejecute este
-  grub-install –target=x86_64-efi –efi-directory=/boot
+  grub-install --target=x86_64-efi --bootloader-id=’Arch Linux’ --recheck
+  # si ese da algun error entonces ejecute este
+  grub-install --target=x86_64-efi --efi-directory=/boot
 ```
 ```bash  
   # luego termine de ejecutar estos
@@ -166,9 +167,9 @@ Allí dentro solo debes crear 3 particiones, sin tocar las de Windows, haz lo si
 
 #### Una vez te hayas logueado con usuario y contraseña, debes:
 ```bash
-  # Conecterte a tu red Wifi
+  # conectate a tu red WIFI
   nmcli dev wifi connect <nombre-de-la-red> password <la-clave>
-  # actualiza todos los paquetes
+  # descarga/actualiza todos los paquetes necesarios
   sudo pacman -Syys
 ```
 
