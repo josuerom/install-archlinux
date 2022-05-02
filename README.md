@@ -36,7 +36,6 @@ Cabe mencionarle que, los próximos comandos que verás en esta documentación, 
 
 #### Actualiza tu zona horaria:
 ```bash
-  timedatectl list
   timedatectl set-timezone America/Bogota
   timedatectl status
 ```
