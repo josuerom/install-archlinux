@@ -1,4 +1,4 @@
-## Paquetes y Programas para Instalar en Arch como Complementos.
+## Paquetes y Programas Recomentados para Instalar en Arch Linux.
 
 #### Instala Yay
 ```bash
@@ -9,4 +9,19 @@
   sudo cd /opt/ && yay -S https://aur.archlinux.org/google-chrome.git && cd google-chrome && makepkg -si
 ```
 
+#### Instala las Fuentes UbuntuMono Nerd Font y Cascadia Code
+```bash
+  yay -S nerd-font-ubuntu-mono && yay -S cascadia-code
+```
+
 #### 
+```bash
+```
+
+#### 
+```bash
+```
+
+#### 
+```bash
+```
