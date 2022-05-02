@@ -23,7 +23,7 @@ udiskie -t &
 # Java Fonts
 xsettingsd &
 # Wallpaper
-nitrogen --restore &
+feh --bg-scale Imágenes/02.jpg
 # Overlay Bar
 xob-pulse-py | xob -s pulse &
 xob-brightness-js | xob -s brightness &
