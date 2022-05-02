@@ -34,17 +34,6 @@ Cabe mencionarle que, los próximos comandos que verás en esta documentación, 
   ls -/sys/firmware/efi/efivars
 ```
 
-#### Conoce todas las particiones de tu disco duro:
-```bash
-  # lista las particiones de tu disco duro
-  lsblk
-```
-
-#### Entra al editor de particiones gráfico de Arch:
-```bash
-  cfdisk /dev/<nombre-del-disco-duro-principal>
-```
-
 #### Actualiza tu zona horaria:
 ```bash
   timedatectl list
@@ -52,10 +41,17 @@ Cabe mencionarle que, los próximos comandos que verás en esta documentación, 
   timedatectl status
 ```
 
+#### Conoce todas las particiones de tu disco duro:
+```bash
+  # lista las particiones de tu disco duro
+  lsblk
+```
+
 #### Crea las particiones para el funcionamiento del SO Arch Linux.
 Esta es la parte más difícil para todos los que quieren instalarlo por primera vez. Las siguientes instrucciones son para instalar Arch Linux junto a Windows, función más conocida como Dual Boot para empezar, debes realizar todo al pie de la letra. Ejecute el comando:
 ```bash
-  cfdisk
+  # entra al editor de particiones gráfico de Arch:
+  cfdisk /dev/<nombre-del-disco-duro-principal>
 ```
 
 Allí dentro solo debes crear 3 particiones, sin tocar las de Windows, haz lo siguiente.
@@ -94,8 +90,11 @@ Allí dentro solo debes crear 3 particiones, sin tocar las de Windows, haz lo si
 
 #### Instala el Kernel de Linux junto a unos programas necesarios.
 ```bash
-  # los paquetes últimos  (ranger rofi scrot redshift qtile y nitrogen) son opcionales
-  pacstrap -i /mnt base base-devel linux linux-lts linux-headers linux-firmware sudo nano code git neofetch network-manager-applet dhcpcd brightnessctl volumeicon cbatticon lxappearance vlc bluez wpa_supplicant firefox htop alacritty ranger rofi scrot redshift qtile nitrogen
+  # este comando contiene la instalación de kernel
+  pacstrap -i /mnt base base-devel linux linux-lts linux-headers linux-firmware
+  
+  # ahora instalaremos todos los programas y paquetes que utilizaremos
+  pacstrap -i /mnt sudo nano code git neofetch network-manager-applet dhcpcd brightnessctl volumeicon cbatticon vlc bluez wpa_supplicant firefox xterm which pulseaudio pavucontrol pamixer htop alacritty ranger rofi scrot redshift qtile feh libnotify notification-daemon xorg-server xorg-xinit unzip picom geeqie
   
   # luego que termine de instalarse todo eso, debe ejecutar el sgt comando para conocer los archivos /root del SO Arch
   ls /mnt
@@ -178,19 +177,17 @@ Allí dentro solo debes crear 3 particiones, sin tocar las de Windows, haz lo si
   sudo pacman -S xf86-video-intel intel-ucode
 ```
 
-#### Instala Xorg y Mesa:
-```bash
-  sudo pacman -S xorg-server xorg-xinit mesa mesa-demos
-```
-
-#### Instalar el gestor de Escritorio GNOME y el gestor de inicio de sesión GDM:
+#### Instalar el gestor de Escritorio GNOME y el gestor de inicio de sesión Lightdm:
 En este caso instalaré GNOME ya que es el mismo escritorio que trae ***Ubuntu, Fedora y otras distribuciones GNU/Linux*** por defecto, ejecuta los siguientes comandos para culminar toda la instalación de Arch:
 ```bash
-  sudo pacman -S gnome gnome-extra gdm
-  systemctl enable gdm.service
+  sudo pacman -S gnome gnome-extra lightdm lightdm-gtk-greeter
+  sudo systemctl enable lightdm
   reboot
 ```
 
-Listo, si todo lo realizaste bien, ya tendrías el sistema operativo Arch Linux completamente instalado y funcionando a la perfección, si no pudiste instalarlo a la primera con ayuda de esta guía, contactame para ayuderte
+Listo, si todo lo realizaste bien, ya tendrías el sistema operativo Arch Linux completamente instalado y funcionando a la perfección, si no pudiste instalarlo a la primera con ayuda de esta guía, contactame para ayuderte.
+```email
+  josueromram@outlook.es
+```
 
 ### Muchas gracias por leerte esta guía de instalación medio entendible.
