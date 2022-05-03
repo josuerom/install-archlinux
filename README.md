@@ -91,7 +91,7 @@ Esto es más que todo para
 #### Instala el Kernel de Linux junto con los programas necesarios
 ```bash
   # este comando contiene la instalación de kernel y otros programas necesarios
-  pacstrap -i /mnt base base-devel linux linux-lts linux-headers linux-firmware nano neovim code git neofetch network-manager-applet dhcpcd brightnessctl volumeicon cbatticon vlc bluez wpa_supplicant firefox xterm alacritty pulseaudio pavucontrol pamixer htop thunar rofi scrot redshift feh xorg unzip picom geeqie
+  pacstrap -i /mnt linux linux-firmware base base-devel nano neovim code git neofetch network-manager-applet netctl dhcpcd diálogo wpa_supplicant brightnessctl volumeicon cbatticon vlc bluez firefox xterm alacritty pulseaudio pavucontrol pamixer htop thunar rofi scrot redshift feh xorg unzip picom geeqie
   # conozca los archivos de sistemas /root
   ls /mnt
 ```
