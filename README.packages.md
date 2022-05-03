@@ -13,7 +13,7 @@
 ```
 
 #### Instala las Fuentes
-La fuente para programar y realizar otra tareas es importante, ya que así te sentirás más agusto al leer y escribirlo, yo recomiento que usen estás alguna de estas tres fuentes (UbuntuMono Nerd Font, JetBrains Mono o Cascadia Code).
+La fuente para programar y realizar otra tareas es importante, ya que así te sentirás más agusto al leer y escribirlo, yo recomiento que use alguna de estas tres fuentes muy poderosas (UbuntuMono Nerd Font, JetBrains Mono o Cascadia Code).
 ```bash
   yay -S nerd-font-ubuntu-mono
   yay -S ttf-jetbrains-mono
@@ -21,7 +21,7 @@ La fuente para programar y realizar otra tareas es importante, ya que así te se
 ```
 
 #### Instala OBS Studio
-Si nesecitas algún grabador de pantalla, te recomiento que instales OBS Studio.
+Si nesecitas algún grabador de pantalla, recomiendo que te instales este.
 ```bash
   yay -S obs-studio
 ```
