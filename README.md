@@ -85,13 +85,14 @@ Esto es más que todo para
 ```bash
   cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.bak
   ls  /etc/pacman.d
+  pacman -Sy
   pacman -S pacman-contrib && rankmirrors -n 10 /etc/pacman.d/mirrorlist.bak > /etc/pacman.d/mirrorlist
 ```
 
 #### Instala el Kernel de Linux junto con los programas necesarios
 ```bash
   # este comando contiene la instalación de kernel y otros programas necesarios
-  pacstrap -i /mnt linux linux-firmware base base-devel nano neovim code git neofetch network-manager-applet netctl dhcpcd diálogo wpa_supplicant brightnessctl volumeicon cbatticon vlc bluez firefox xterm alacritty pulseaudio pavucontrol pamixer htop thunar rofi scrot redshift feh xorg unzip picom geeqie
+  pacstrap -i /mnt linux linux-firmware base base-devel nano neovim code git neofetch network-manager-applet netctl dhcpcd dialog wpa_supplicant brightnessctl volumeicon cbatticon vlc bluez firefox xterm alacritty pulseaudio pavucontrol pamixer htop thunar rofi scrot redshift feh xorg unzip picom geeqie
   # conozca los archivos de sistemas /root
   ls /mnt
 ```
@@ -143,7 +144,6 @@ El fichero fstab se encuentra comúnmente en sistemas Unix como parte de la conf
 
 #### Instala el cargador de arranque GRUB
 ```bash
-  lsblk
   mkdir /boot/efi
   mount /dev/nombre-partición-efi-de-100M /boot/efi
   # si te arroja error es normal
