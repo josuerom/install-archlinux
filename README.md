@@ -85,19 +85,13 @@ Esto es más que todo para
 ```bash
   cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.bak
   ls  /etc/pacman.d
-  pacman -Sy 
-  pacman -S pacman-contrib
-  rankmirrors -n 10 /etc/pacman.d/mirrorlist.bak > /etc/pacman.d/mirrorlist
+  pacman -S pacman-contrib && rankmirrors -n 10 /etc/pacman.d/mirrorlist.bak > /etc/pacman.d/mirrorlist
 ```
 
 #### Instala el Kernel de Linux junto con los programas necesarios
 ```bash
-  # este comando contiene la instalación de kernel
-  pacstrap -i /mnt base base-devel linux linux-lts linux-headers linux-firmware
-  
-  # ahora instalaremos todos los programas y paquetes que utilizaremos, todos ellos son obligatorios ya que serán necesario par el funcionamiento de Qtile
-  pacstrap -i /mnt nano neovim code git neofetch network-manager-applet dhcpcd brightnessctl volumeicon cbatticon vlc bluez wpa_supplicant firefox xterm alacritty pulseaudio pavucontrol pamixer htop thunar rofi scrot redshift feh xorg-server-xephyr xorg-xinit unzip picom geeqie
-  
+  # este comando contiene la instalación de kernel y otros programas necesarios
+  pacstrap -i /mnt base base-devel linux linux-lts linux-headers linux-firmware nano neovim code git neofetch network-manager-applet dhcpcd brightnessctl volumeicon cbatticon vlc bluez wpa_supplicant firefox xterm alacritty pulseaudio pavucontrol pamixer htop thunar rofi scrot redshift feh xorg-server-xephyr xorg-xinit unzip picom geeqie
   # conozca los archivos de sistemas /root
   ls /mnt
 ```
@@ -116,12 +110,11 @@ El fichero fstab se encuentra comúnmente en sistemas Unix como parte de la conf
   useradd -m <username>
   passwd <username>
   usermod -aG wheel,video,audio,storage <username>
-  
-  # ejecuta este comando
+  # ejecute y edite
   EDITOR=nano visudo
-  # descomenta la sugiente línea que contiene: # %wheel ALL=(ALL) ALL
+  # descomente la sugiente línea: # %wheel ALL=(ALL) ALL
   # debajo de ella agregue esto:
-  # Defaults timestamp_timeout=0
+  Defaults timestamp_timeout=0
 ```
 
 #### Establezca el idioma para el SO Arch Linux
