@@ -67,7 +67,7 @@ Añádale el sistema de archivos correspondiente a las particiones.
   mkfs.ext4  /dev/nombre-particion-root
   mkfs.ext4  /dev/nombre-particion-home
   mkswap  /dev/nombre-particion-swap
-  swapon
+  swapon /dev/nombre-particion-swap
   fdisk -l
 ```
 
@@ -95,15 +95,15 @@ Esto es más que todo para
   # este comando contiene la instalación de kernel
   pacstrap -i /mnt base base-devel linux linux-lts linux-headers linux-firmware
   
-  # ahora instalaremos todos los programas y paquetes que utilizaremos, todos ellos son obligatorios ya que serán necesario par el gestor de ventanas Qtile
-  pacstrap -i /mnt sudo nano neovim code git neofetch network-manager-applet dhcpcd brightnessctl volumeicon cbatticon vlc bluez wpa_supplicant firefox xterm which pulseaudio pavucontrol pamixer htop alacritty thunar rofi scrot redshift feh xorg-server xorg-xinit unzip picom geeqie
+  # ahora instalaremos todos los programas y paquetes que utilizaremos, todos ellos son obligatorios ya que serán necesario par el funcionamiento de Qtile
+  pacstrap -i /mnt nano neovim code git neofetch network-manager-applet dhcpcd brightnessctl volumeicon cbatticon vlc bluez wpa_supplicant firefox xterm alacritty pulseaudio pavucontrol pamixer htop thunar rofi scrot redshift feh xorg-server-xephyr xorg-xinit unzip picom geeqie
   
   # conozca los archivos de sistemas /root
   ls /mnt
 ```
 
-#### Genera la tabla del sistema de archivos FSTAB
-Este paso es para
+#### Genera tabla del sistema de archivos FSTAB
+El fichero fstab se encuentra comúnmente en sistemas Unix como parte de la configuración del sistema. Lo más destacado de este fichero es la lista de discos y particiones disponibles. En ella se indica cómo montar cada dispositivo y qué configuración utilizar.
 ```bash
   genfstab -U /mnt >> /mnt/etc/fstab
   cat /mnt/etc/fstab
@@ -130,7 +130,6 @@ Este paso es para
   nano /etc/locale.gen
   locale-gen
   echo LANG=es_CO.UTF-8 > /etc/locale.conf
-  echo KEYMAP=es_CO-UTF-8 > /etc/
   export LANG= es_CO.UTF-8
 ```
 
@@ -146,7 +145,7 @@ Este paso es para
 
 #### Establece la distribución del teclado
 ```bash
-  sudo locelactl set-x11-keymap latam presario deadtilde grp:alt_shift_toggle
+  localectl set-x11-keymap latam presario deadtilde grp:alt_shift_toggle
 ```
 
 #### Instala el cargador de arranque GRUB
@@ -154,19 +153,20 @@ Este paso es para
   lsblk
   mkdir /boot/efi
   mount /dev/nombre-partición-efi-de-100M /boot/efi
+  # si te arroja error fue normal
+  
   lsblk
   pacman -S grub efibootmgr os-prober networkmanager
   nano /etc/default/grub (descomente la última línea nada más)
-
   # ahora ejecute este
   grub-install --target=x86_64-efi --bootloader-id=’Arch Linux’ --recheck
-  # si ese da algun error entonces ejecute este
-  grub-install --target=x86_64-efi --efi-directory=/boot
 ```
+
 ```bash  
   # luego termine de ejecutar estos
   os-prober
   grub-mkconfig -o /boot/grub/grub.cfg
+  # enciende los servicios
   systemctl enable dhcpcd.service
   systemctl enable NetworkManager.service
   exit
@@ -178,6 +178,7 @@ Este paso es para
 
 Conectate a tu red WiFi, con el siguiente comando
 ```bash
+  sudo su
   nmcli dev wifi connect <nombre-de-la-red> password <la-clave>
 ```
 Si lo prefieres también puedes actualizar todos los paquetes del sistema
@@ -185,18 +186,28 @@ Si lo prefieres también puedes actualizar todos los paquetes del sistema
   sudo pacman -Syys
 ```
 
-#### Instala el controlador de la tarjeta gráfica Intel
+#### Instala los driver de la tarjeta gráfica Intel
 ```bash
   sudo pacman -S xf86-video-intel intel-ucode
 ```
 
-#### Instalar el gestor de Escritorio QTILE junto al gestor de inicio de sesión GDM:
-En este caso instalaré QTILE ya que es el mismo escritorio que para mi es el mejor gestor de ventanas que exite en ***GNU/Linux*** para moverse si usar tanto el ranto, ejecuta los siguientes comandos para culminar toda la guía.
+#### Instala driver para el TouchPad
+```bash
+  sudo pacman -S xf86-input-libinput
+  cd /etc///
+  nano 30-touchpad.conf
+  
+  # agrega estás líneas
+  
+```
+
+#### Instalar el gestor de Ventanas QTILE junto al gestor de inicio de sesión GDM:
+En este caso instalaré QTILE ya que es el mejor gestor de ventanas para trabajar en Arch que exite hasta el momento en ***GNU/Linux***, más que todo es para el flujo si usar tanto el mouse, ejecuta los siguientes comandos para culminar esta guía.
 ```bash
   sudo pacman -S qtile gdm
 ```
 
-Acto seguido, enciende el servico DGM y reinicia para que veas los cambios
+Acto seguido, enciende el servico DGM y reinicia para que veas los cambios surjan efecto
 ```bash
   sudo systemctl enable gdm.service
   reboot
