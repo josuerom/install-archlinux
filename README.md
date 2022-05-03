@@ -200,19 +200,18 @@ Si lo prefieres también puedes actualizar todos los paquetes del sistema
    EndSection
 ```
 
-#### Instalar el gestor de Ventanas QTILE junto al gestor de inicio de sesión GDM:
+#### Instalar el gestor de Ventanas QTILE junto al gestor de inicio de sesión LIGHTDM:
 En este caso instalaré QTILE ya que es el mejor gestor de ventanas para trabajar en Arch que exite hasta el momento en ***GNU/Linux***, más que todo es para el flujo si usar tanto el mouse, ejecuta los siguientes comandos para culminar esta guía.
 ```bash
-  pacman -S qtile gdm
+  pacman -S qtile lightdm lightdm-gtk-greeter
   cd /home/<username>/.config/
-  git clone https://github.com/josuerom/install-arch-linux.git
-  mv install-arch-linux dotfiles
-  cp -r dotfiles/config/qtile ~/.config
+  git clone https://github.com/josuerom/arch-linux.git
+  cp -r arch-linux/config/qtile ~/.config
 ```
 
 Acto seguido, enciende el servico DGM y reinicia para que veas los cambios surjan efecto
 ```bash
-  systemctl enable gdm.service
+  systemctl enable lightdm.service
   reboot
 ```
 
