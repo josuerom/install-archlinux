@@ -111,7 +111,8 @@ El fichero fstab se encuentra comúnmente en sistemas Unix como parte de la conf
   useradd -m <username>
   passwd <username>
   usermod -aG wheel,video,audio,storage <username>
-  # ejecute y edite
+ 
+ # ejecute y edite
   EDITOR=nano visudo
   # descomente la sugiente línea: # %wheel ALL=(ALL) ALL
   # debajo de ella agregue esto:
@@ -126,7 +127,7 @@ El fichero fstab se encuentra comúnmente en sistemas Unix como parte de la conf
   locale-gen
   echo KEYMAP=la-latin1 > /etc/vconsole.conf
   echo LANG=es_CO.UTF-8 > /etc/locale.conf
-  export LANG= es_CO.UTF-8
+  export LANG=es_CO.UTF-8
 ```
 
 #### Establezca un nombre para su PC
@@ -142,6 +143,7 @@ El fichero fstab se encuentra comúnmente en sistemas Unix como parte de la conf
 #### Instala el cargador de arranque GRUB
 ```bash
   mkdir /boot/efi
+  lsblk
   mount /dev/nombre-partición-efi-de-100M /boot/efi
   # si te arroja error es normal
   
