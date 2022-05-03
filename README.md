@@ -209,8 +209,14 @@ En este caso instalaré QTILE ya que es el mejor gestor de ventanas para trabaja
   cp -r arch-linux/config/qtile ~/.config
 ```
 
-Acto seguido, enciende el servico DGM y reinicia para que veas los cambios surjan efecto
-```bash
+Acto seguido, edita el archivo <lightdm.conf>
+```
+  sudo nano /etc/lightdm/lightdm.conf
+  # en el archivo descomente la línea
+  # #greeter-session y agrégue esto
+  greeter-session = lightdm-gtk-greeter
+
+  # encienda el servicio y reinicie para que vea los cambios
   systemctl enable lightdm.service
   reboot
 ```
