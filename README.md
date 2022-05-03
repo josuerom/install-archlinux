@@ -122,6 +122,7 @@ El fichero fstab se encuentra comúnmente en sistemas Unix como parte de la conf
 ```bash
   # abra el archvip locale.gen y descomente la línea (#es_CO.UTF-8 UTF-8)
   nano /etc/locale.gen
+  hwclock -w
   locale-gen
   echo KEYMAP=la-latin1 > /etc/vconsole.conf
   echo LANG=es_CO.UTF-8 > /etc/locale.conf
