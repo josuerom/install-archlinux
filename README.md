@@ -201,17 +201,19 @@ Si lo prefieres también puedes actualizar todos los paquetes del sistema
 ```
 
 #### Instalar el gestor de Ventanas QTILE junto al gestor de inicio de sesión LIGHTDM:
-En este caso instalaré QTILE ya que es el mejor gestor de ventanas para trabajar en Arch que exite hasta el momento en ***GNU/Linux***, más que todo es para el flujo si usar tanto el mouse, ejecuta los siguientes comandos para culminar esta guía.
+En este caso se instalará QTILE ya que es el mejor gestor de ventanas para trabajar en Arch que exite hasta el momento en ***GNU/Linux***, más que todo es para el flujo sin tener que usar tanto el mouse, ejecuta los siguientes comandos para culminar esta guía.
+
+Si quieres descargar esta configuración de QTILE
 ```bash
-  pacman -S qtile lightdm lightdm-gtk-greeter
-  cd /home/<username>/.config/
+  cd /home/<username>/
   git clone https://github.com/josuerom/arch-linux.git
-  cp -r arch-linux/config/qtile ~/.config
+  mv arch-linux dotfiles
 ```
 
-Acto seguido, edita el archivo <lightdm.conf>
+Acto seguido, descarga el gestor de ventanas y de sesión, el archivo <lightdm.conf> debe editarlo.
 ```
-  sudo nano /etc/lightdm/lightdm.conf
+  pacman -S qtile lightdm lightdm-gtk-greeter
+  nano /etc/lightdm/lightdm.conf
   # en el archivo descomente la línea
   # #greeter-session y agrégue esto
   greeter-session = lightdm-gtk-greeter
