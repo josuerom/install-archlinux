@@ -4,7 +4,7 @@ Acabas de entrar a donde algún o algunos programas de la lista te puedan intere
 #### Instala Yay
 ***Otro yogur más*** por siglas en ingles (Yet Another Yogurt), es un asistente de instalación de software para todo GNU/Linux, si el programa que deseas no está en [AUR](https://archlinux.org/packages/) no existe para Linux.
 ```bash
-  mkdir packages-yay && cd ~/packages-yay && git clone https://aur.archlinux.org/yay-git.git && cd yay-git && makepkg -si
+  git clone https://aur.archlinux.org/yay-git.git && cd yay-git && makepkg -si
 ```
 
 #### Instala Google Chrome
