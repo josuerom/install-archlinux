@@ -194,17 +194,26 @@ Si lo prefieres también puedes actualizar todos los paquetes del sistema
 #### Instala driver para el TouchPad
 ```bash
   sudo pacman -S xf86-input-libinput
-  cd /etc///
+  cd /etc/X11/xorg.conf.d/
   nano 30-touchpad.conf
   
-  # agrega estás líneas
-  
+  # agrege estas líneas
+  Section "Inputclass"
+    Identifier "devname"
+    Driver "libinput"
+    Option "Tapping" "on"
+    Option "NaturalScrolling" "true"
+   EndSection
 ```
 
 #### Instalar el gestor de Ventanas QTILE junto al gestor de inicio de sesión GDM:
 En este caso instalaré QTILE ya que es el mejor gestor de ventanas para trabajar en Arch que exite hasta el momento en ***GNU/Linux***, más que todo es para el flujo si usar tanto el mouse, ejecuta los siguientes comandos para culminar esta guía.
 ```bash
   sudo pacman -S qtile gdm
+  cd /home/<username>/.config/
+  git clone https://github.com/josuerom/install-arch-linux.git
+  mv install-arch-linux dotfiles
+  cp -r dotfiles/config/qtile ~/.config
 ```
 
 Acto seguido, enciende el servico DGM y reinicia para que veas los cambios surjan efecto
