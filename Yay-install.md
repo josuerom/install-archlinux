@@ -10,15 +10,15 @@ Acabas de entrar a donde algún o algunos programas de la lista te puedan intere
 #### Instala Google Chrome
 ***Google Chrome*** es un navegador ligero y muy intuitivo que llama mucho la atención y muchos desarroladores lo utilizan.
 ```bash
-  yay -S https://aur.archlinux.org/google-chrome.git && cd google-chrome && makepkg -si
+  yay -S google-chrome
 ```
 
 #### Instala las Fuentes
 La fuente para programar y realizar otra tareas es importante, ya que así te sentirás más agusto al leer y escribirlo, yo recomiento que use alguna de estas tres fuentes muy poderosas (UbuntuMono Nerd Font, JetBrains Mono o Cascadia Code).
 ```bash
-  yay -S nerd-font-ubuntu-mono
+  yay -S nerd-fonts-ubuntu-mono
   yay -S ttf-jetbrains-mono
-  yay -S cascadia-code
+  yay -S ttf-cascadia-code
 ```
 
 #### Instala OBS Studio
