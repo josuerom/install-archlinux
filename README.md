@@ -28,7 +28,7 @@ Necesitas conexión a internet en tu máquina para poder llevar a cabo las próx
 ```bash
   ip link
   rfkill unblock all
-  iwctl--passhrase <clave-wifi> station wlan0 connect <nombre-de-red>
+  iwctl --passphrase <clave-wifi> station wlan0 connect <nombre-de-red>
   # verifica si tienes internet con
   ping archlinux.org -c 3
 ```
@@ -68,7 +68,7 @@ Añádale el sistema de archivos correspondiente a las particiones.
   mkfs.ext4  /dev/nombre-particion-home
   mkswap  /dev/nombre-particion-swap
   swapon /dev/nombre-particion-swap
-  fdisk -l
+  lsblk
 ```
 
 #### Monta las particiones al sistema
