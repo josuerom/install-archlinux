@@ -16,6 +16,13 @@ Si muy bien usted intentan colocar algún símbolo verá que le aparecerá otro 
   loadkeys la-latin1
 ```
 
+#### Verifica si el modo de arranque de tu PC es UEFI o BIOS
+Estoy es muy importante, debido a que, está guía de instalación es para máquinas con modo de arranque UEFI ya que al lanzar el sgt comando, me arroja resultados.
+```bash
+  # si te muestra resultados, es por UEFI
+  ls -/sys/firmware/efi/efivars
+```
+
 #### Conectate a una red WIFI inalámbrica
 Necesitas conexión a internet en tu máquina para poder llevar a cabo las próximas instalaciones. 
 ```bash
@@ -26,21 +33,14 @@ Necesitas conexión a internet en tu máquina para poder llevar a cabo las próx
   ping archlinux.org -c 3
 ```
 
-#### Verifica si el modo de arranque de tu PC es UEFI o BIOS
-Estoy es muy importante, debido a que, está guía de instalación es para máquinas con modo de arranque UEFI ya que al lanzar el sgt comando, me arroja resultados.
-```bash
-  # si te muestra resultados, es por UEFI
-  ls -/sys/firmware/efi/efivars
-```
-
-#### Actualiza tu zona horaria
+#### Actualiza tu Región
 Ajustale la zona horaria a tu máquina con los siguientes comandos, cabe mencionar que todo está configuración la basó en idioma latinoamericano, Bogotá, Colombia.
 ```bash
   timedatectl set-timezone America/Bogota
   timedatectl status
 ```
 
-#### Conoce todas las particiones de tu disco duro
+#### Conoce todas las particiones del disco duro
 Lista las participaciones de todo tu disco duro
 ```bash
   lsblk
@@ -67,7 +67,7 @@ Añádale el sistema de archivos correspondiente a las particiones.
   mkfs.ext4  /dev/nombre-particion-root
   mkfs.ext4  /dev/nombre-particion-home
   mkswap  /dev/nombre-particion-swap
-  swapon  /dev/nombre-particion-swap
+  swapon
   fdisk -l
 ```
 
@@ -95,8 +95,8 @@ Esto es más que todo para
   # este comando contiene la instalación de kernel
   pacstrap -i /mnt base base-devel linux linux-lts linux-headers linux-firmware
   
-  # ahora instalaremos todos los programas y paquetes que utilizaremos
-  pacstrap -i /mnt sudo nano neovim code git neofetch network-manager-applet dhcpcd brightnessctl volumeicon cbatticon vlc bluez wpa_supplicant firefox xterm which pulseaudio pavucontrol pamixer htop alacritty ranger rofi scrot redshift feh xorg-server xorg-xinit unzip picom geeqie
+  # ahora instalaremos todos los programas y paquetes que utilizaremos, todos ellos son obligatorios ya que serán necesario par el gestor de ventanas Qtile
+  pacstrap -i /mnt sudo nano neovim code git neofetch network-manager-applet dhcpcd brightnessctl volumeicon cbatticon vlc bluez wpa_supplicant firefox xterm which pulseaudio pavucontrol pamixer htop alacritty thunar rofi scrot redshift feh xorg-server xorg-xinit unzip picom geeqie
   
   # conozca los archivos de sistemas /root
   ls /mnt
@@ -109,7 +109,7 @@ Este paso es para
   cat /mnt/etc/fstab
 ```
 
-#### Establece una contraseña de usuario y de administrador
+#### Establece una contraseña de administrador y de usuario
 ```bash
   arch-chroot /mnt
   passwd
@@ -130,6 +130,7 @@ Este paso es para
   nano /etc/locale.gen
   locale-gen
   echo LANG=es_CO.UTF-8 > /etc/locale.conf
+  echo KEYMAP=es_CO-UTF-8 > /etc/
   export LANG= es_CO.UTF-8
 ```
 
@@ -141,6 +142,11 @@ Este paso es para
 #### Actualiza tu zona horaria y región
 ```bash
   ln -sf /usr/share/zoneinfo/America/Bogota /etc/localtime
+```
+
+#### Establece la distribución del teclado
+```bash
+  sudo locelactl set-x11-keymap latam presario deadtilde grp:alt_shift_toggle
 ```
 
 #### Instala el cargador de arranque GRUB
@@ -170,10 +176,6 @@ Este paso es para
 
 ### Una vez te hayas logueado con usuario y contraseña
 
-#### Establece el idioma y distribución del teclado permanentemente:
-```bash
-  loadkeys /usr/share/kbd/keymaps/i386/qwerty/la-latin1.map.gz
-```
 Conectate a tu red WiFi, con el siguiente comando
 ```bash
   nmcli dev wifi connect <nombre-de-la-red> password <la-clave>
@@ -196,7 +198,7 @@ En este caso instalaré QTILE ya que es el mismo escritorio que para mi es el me
 
 Acto seguido, enciende el servico DGM y reinicia para que veas los cambios
 ```bash
-  sudo systemctl enable gdm
+  sudo systemctl enable gdm.service
   reboot
 ```
 
