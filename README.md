@@ -16,11 +16,6 @@ Si muy bien usted intentan colocar algún símbolo verá que le aparecerá otro 
   loadkeys la-latin1
 ```
 
-#### Establece el idioma y distribución del teclado permanentemente:
-```bash
-  loadkeys /usr/share/kbd/keymaps/i386/qwerty/la-latin1.map.gz
-```
-
 #### Conectate a una red WIFI inalámbrica
 Necesitas conexión a internet en tu máquina para poder llevar a cabo las próximas instalaciones. 
 ```bash
@@ -101,7 +96,7 @@ Esto es más que todo para
   pacstrap -i /mnt base base-devel linux linux-lts linux-headers linux-firmware
   
   # ahora instalaremos todos los programas y paquetes que utilizaremos
-  pacstrap -i /mnt sudo nano neovim code git neofetch network-manager-applet dhcpcd brightnessctl volumeicon cbatticon vlc bluez wpa_supplicant firefox xterm which pulseaudio pavucontrol pamixer htop alacritty ranger rofi scrot redshift qtile feh libnotify notification-daemon xorg-server xorg-xinit unzip picom geeqie
+  pacstrap -i /mnt sudo nano neovim code git neofetch network-manager-applet dhcpcd brightnessctl volumeicon cbatticon vlc bluez wpa_supplicant firefox xterm which pulseaudio pavucontrol pamixer htop alacritty ranger rofi scrot redshift feh xorg-server xorg-xinit unzip picom geeqie
   
   # conozca los archivos de sistemas /root
   ls /mnt
@@ -173,8 +168,13 @@ Este paso es para
   reboot
 ```
 
-#### Una vez te hayas logueado con usuario y contraseña
-Debe conectar a tu red WiFi, con el siguiente comando
+### Una vez te hayas logueado con usuario y contraseña
+
+#### Establece el idioma y distribución del teclado permanentemente:
+```bash
+  loadkeys /usr/share/kbd/keymaps/i386/qwerty/la-latin1.map.gz
+```
+Conectate a tu red WiFi, con el siguiente comando
 ```bash
   nmcli dev wifi connect <nombre-de-la-red> password <la-clave>
 ```
@@ -188,24 +188,21 @@ Si lo prefieres también puedes actualizar todos los paquetes del sistema
   sudo pacman -S xf86-video-intel intel-ucode
 ```
 
-#### Instalar el gestor de Escritorio GNOME junto al gestor de inicio de sesión Lightdm:
-En este caso instalaré GNOME ya que es el mismo escritorio que trae ***Ubuntu, Fedora y otras distribuciones GNU/Linux*** por defecto, ejecuta los siguientes comandos para culminar toda la instalación de Arch:
+#### Instalar el gestor de Escritorio QTILE junto al gestor de inicio de sesión GDM:
+En este caso instalaré QTILE ya que es el mismo escritorio que para mi es el mejor gestor de ventanas que exite en ***GNU/Linux*** para moverse si usar tanto el ranto, ejecuta los siguientes comandos para culminar toda la guía.
 ```bash
-  sudo pacman -S gnome lightdm lightdm-gtk-greeter
+  sudo pacman -S qtile gdm
 ```
 
-Ahora abre el archivo que está en ***/etc/share///***, y modifica la siguentr línea
+Acto seguido, enciende el servico DGM y reinicia para que veas los cambios
 ```bash
-  greeter-session = lightdm-gtk-greeter
-```
-
-Acto seguido, enciendelo lightdm y reinicia el SO para que veas los cambios
-```bash
-  sudo systemctl enable lightdm
+  sudo systemctl enable gdm
   reboot
 ```
 
-Listo, si todo lo realizaste bien, ya tendrías el sistema operativo Arch Linux completamente instalado y funcionando a la perfección, si no pudiste instalarlo la primera vez con ayuda de esta guía medio entendible para los que tienen poco conocimiento de linux, pues contactame vía correo para ayuderte.
+Y listo, si todo lo realizaste bien, ya tendrías el sistema operativo Arch Linux completamente instalado y funcionando a la perfección, solo te faltaría personalizar el gestor de ventanas ***Qtile*** para que no tengas la pantalla en negro y sin nada.
+
+Pero si no pudiste instalarlo la primera vez con esta ayuda medio entendible para los que no tienen conocimientos de linux, si tu fuiste uno contactame vía email para ayuderte.
 ```email
   josueromram@outlook.es
 ```
