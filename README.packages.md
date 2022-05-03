@@ -1,4 +1,4 @@
-## Paquetes y Programas Recomentados para Instalar en Arch Linux.
+## Pack de Programas Recomendados para que Instales en Arch Linux.
 
 #### Instala Yay
 ***Otro yogur más*** por siglas en ingles (Yet Another Yogurt), es un asistente de instalación de software para todo GNU/Linux, si el programa que deseas no está en [AUR](https://archlinux.org/packages/) no existe para Linux.
