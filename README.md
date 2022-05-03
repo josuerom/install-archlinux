@@ -91,7 +91,7 @@ Esto es más que todo para
 #### Instala el Kernel de Linux junto con los programas necesarios
 ```bash
   # este comando contiene la instalación de kernel y otros programas necesarios
-  pacstrap -i /mnt base base-devel linux linux-lts linux-headers linux-firmware nano neovim code git neofetch network-manager-applet dhcpcd brightnessctl volumeicon cbatticon vlc bluez wpa_supplicant firefox xterm alacritty pulseaudio pavucontrol pamixer htop thunar rofi scrot redshift feh xorg-server-xephyr xorg-xinit unzip picom geeqie
+  pacstrap -i /mnt base base-devel linux linux-lts linux-headers linux-firmware nano neovim code git neofetch network-manager-applet dhcpcd brightnessctl volumeicon cbatticon vlc bluez wpa_supplicant firefox xterm alacritty pulseaudio pavucontrol pamixer htop thunar rofi scrot redshift feh xorg unzip picom geeqie
   # conozca los archivos de sistemas /root
   ls /mnt
 ```
@@ -131,7 +131,7 @@ El fichero fstab se encuentra comúnmente en sistemas Unix como parte de la conf
   echo <nombre-del-pc> > /etc/hostname
 ```
   
-#### Actualiza tu zona horaria y región
+#### Actualiza la hora
 ```bash
   ln -sf /usr/share/zoneinfo/America/Bogota /etc/localtime
 ```
@@ -146,9 +146,8 @@ El fichero fstab se encuentra comúnmente en sistemas Unix como parte de la conf
   lsblk
   mkdir /boot/efi
   mount /dev/nombre-partición-efi-de-100M /boot/efi
-  # si te arroja error fue normal
+  # si te arroja error es normal
   
-  lsblk
   pacman -S grub efibootmgr os-prober networkmanager
   nano /etc/default/grub
   # descomente la última línea nada más
@@ -161,7 +160,7 @@ El fichero fstab se encuentra comúnmente en sistemas Unix como parte de la conf
   # luego termine de ejecutar estos
   os-prober
   grub-mkconfig -o /boot/grub/grub.cfg
-  # enciende los servicios
+  # encienda los servicios
   systemctl enable dhcpcd.service
   systemctl enable NetworkManager.service
   exit
@@ -204,7 +203,7 @@ Si lo prefieres también puedes actualizar todos los paquetes del sistema
 #### Instalar el gestor de Ventanas QTILE junto al gestor de inicio de sesión GDM:
 En este caso instalaré QTILE ya que es el mejor gestor de ventanas para trabajar en Arch que exite hasta el momento en ***GNU/Linux***, más que todo es para el flujo si usar tanto el mouse, ejecuta los siguientes comandos para culminar esta guía.
 ```bash
-  sudo pacman -S qtile gdm
+  pacman -S qtile gdm
   cd /home/<username>/.config/
   git clone https://github.com/josuerom/install-arch-linux.git
   mv install-arch-linux dotfiles
@@ -213,7 +212,7 @@ En este caso instalaré QTILE ya que es el mejor gestor de ventanas para trabaja
 
 Acto seguido, enciende el servico DGM y reinicia para que veas los cambios surjan efecto
 ```bash
-  sudo systemctl enable gdm.service
+  systemctl enable gdm.service
   reboot
 ```
 
