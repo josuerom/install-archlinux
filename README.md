@@ -123,6 +123,7 @@ El fichero fstab se encuentra comúnmente en sistemas Unix como parte de la conf
   # abra el archvip locale.gen y descomente la línea (#es_CO.UTF-8 UTF-8)
   nano /etc/locale.gen
   locale-gen
+  echo KEYMAP=la-latin1 > /etc/vconsole.conf
   echo LANG=es_CO.UTF-8 > /etc/locale.conf
   export LANG= es_CO.UTF-8
 ```
@@ -135,11 +136,6 @@ El fichero fstab se encuentra comúnmente en sistemas Unix como parte de la conf
 #### Actualiza la hora
 ```bash
   ln -sf /usr/share/zoneinfo/America/Bogota /etc/localtime
-```
-
-#### Establece la distribución del teclado
-```bash
-  localectl set-x11-keymap latam presario deadtilde grp:alt_shift_toggle
 ```
 
 #### Instala el cargador de arranque GRUB
@@ -203,7 +199,7 @@ Si lo prefieres también puedes actualizar todos los paquetes del sistema
 #### Instalar el gestor de Ventanas QTILE junto al gestor de inicio de sesión LIGHTDM:
 En este caso se instalará QTILE ya que es el mejor gestor de ventanas para trabajar en Arch que exite hasta el momento en ***GNU/Linux***, más que todo es para el flujo sin tener que usar tanto el mouse, ejecuta los siguientes comandos para culminar esta guía.
 
-Si quieres descargar esta configuración de QTILE
+Si quieres descargar mi configuración de QTILE, clone este repositorio
 ```bash
   cd /home/<username>/
   git clone https://github.com/josuerom/arch-linux.git
