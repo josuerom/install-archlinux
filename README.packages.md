@@ -44,7 +44,7 @@ Con esta herramientas podrás gestionar tus proyectos, tareas, compromisos, etc.
 ```
 
 #### Instala Intellij IDEA
-Si trabajas con java, y eres fanatico del entorno de desarrollo integrado o IDE Intellij IDEA, pues no esperes más y instalatelo.
+Si trabajas con java y eres fanatico del entorno de desarrollo integrado o IDE Intellij IDEA, pues no esperes más y ¡instalalo ya!.
 ```bash
   yay -S intellij-idea-community-edition
 ```
