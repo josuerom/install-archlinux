@@ -150,7 +150,9 @@ El fichero fstab se encuentra comúnmente en sistemas Unix como parte de la conf
   
   lsblk
   pacman -S grub efibootmgr os-prober networkmanager
-  nano /etc/default/grub (descomente la última línea nada más)
+  nano /etc/default/grub
+  # descomente la última línea nada más
+  
   # ahora ejecute este
   grub-install --target=x86_64-efi --bootloader-id=’Arch Linux’ --recheck
 ```
@@ -176,17 +178,17 @@ Conectate a tu red WiFi, con el siguiente comando
 ```
 Si lo prefieres también puedes actualizar todos los paquetes del sistema
 ```bash
-  sudo pacman -Syys
+  pacman -Syys
 ```
 
 #### Instala los driver de la tarjeta gráfica Intel
 ```bash
-  sudo pacman -S xf86-video-intel intel-ucode
+  pacman -S xf86-video-intel intel-ucode
 ```
 
 #### Instala driver para el TouchPad
 ```bash
-  sudo pacman -S xf86-input-libinput
+  pacman -S xf86-input-libinput
   cd /etc/X11/xorg.conf.d/
   nano 30-touchpad.conf
   
