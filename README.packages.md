@@ -1,14 +1,15 @@
 ## Paquetes y Programas Recomentados para Instalar en Arch Linux.
 
 #### Instala Yay
-***Otro yogur más*** por siglas en ingles (Yet Another Yogurt), es un asistente de instalación de software para tod GNU/Linux, si el programa que deseas no está en AUR no existe.
+***Otro yogur más*** por siglas en ingles (Yet Another Yogurt), es un asistente de instalación de software para todo GNU/Linux, si el programa que deseas no está en [AUR](https://archlinux.org/packages/) no existe para Linux.
 ```bash
   sudo su && cd /opt/ && git clone https://aur.archlinux.org/yay-git.git && cd yay-git && makepkg -si
 ```
+
 #### Instala Google Chrome
 ***Google Chrome*** es un navegador ligero y muy intuitivo que llama mucho la atención y muchos desarroladores lo utilizan.
 ```bash
-  sudo cd /opt/ && yay -S https://aur.archlinux.org/google-chrome.git && cd google-chrome && makepkg -si
+  cd /opt/ && yay -S https://aur.archlinux.org/google-chrome.git && cd google-chrome && makepkg -si
 ```
 
 #### Instala las Fuentes
