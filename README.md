@@ -224,7 +224,7 @@ Si quieres clonate mi configuración de QTILE.
 ```
 
 Si instalaste Qtile clonate esta configuración
-``bash
+```bash
   cd /home/<username>/
   git clone https://github.com/josuerom/arch-linux.git
   cp -r arch-linux/config/qtile ~/.config/
