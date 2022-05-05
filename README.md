@@ -10,7 +10,7 @@ La fuente que trae la terminal de arch pues es muy pequeña, para ello la podemo
   setfont ter-132n
 ```
 
-#### Cambia el idioma del teclado por el momento
+#### Cambia el idioma del teclado para la instalación
 Si muy bien usted intentan colocar algún símbolo verá que le aparecerá otro o el símbolo que buscas en esa tecla no está, para ello necesitas que tu teclado hablé el mismo idioma tuyo.
 ```bash
   loadkeys la-latin1
@@ -19,7 +19,7 @@ Si muy bien usted intentan colocar algún símbolo verá que le aparecerá otro 
 #### Verifica si el modo de arranque de tu PC es UEFI o BIOS
 Estoy es muy importante, debido a que, está guía de instalación es para máquinas con modo de arranque UEFI ya que al lanzar el sgt comando, me arroja resultados.
 ```bash
-  # si te muestra resultados, es por UEFI
+  # si te muestra resultados este comando, será UEFI,sino BIOS
   ls -/sys/firmware/efi/efivars
 ```
 
@@ -31,13 +31,6 @@ Necesitas conexión a internet en tu máquina para poder llevar a cabo las próx
   iwctl --passphrase <clave-wifi> station wlan0 connect <nombre-de-red>
   # verifica si tienes internet con
   ping archlinux.org -c 3
-```
-
-#### Actualiza tu Región
-Ajustale la zona horaria a tu máquina con los siguientes comandos, cabe mencionar que todo está configuración la basó en idioma latinoamericano, Bogotá, Colombia.
-```bash
-  timedatectl set-timezone America/Bogota
-  timedatectl status
 ```
 
 #### Conoce todas las particiones del disco duro
@@ -68,7 +61,6 @@ Añádale el sistema de archivos correspondiente a las particiones.
   mkfs.ext4  /dev/nombre-particion-home
   mkswap  /dev/nombre-particion-swap
   swapon /dev/nombre-particion-swap
-  lsblk
 ```
 
 #### Monta las particiones al sistema
@@ -76,35 +68,32 @@ Este paso es para montar las participaciones previamente formateadas en la ruta 
 ```bash
   mount /dev/nombre-particion-root /mnt
   mkdir /mnt/home
+  mkdir /mnt/boot/efi
   mount /dev/nombre-particion-home /mnt/home
+  
+  # si te comando te arroja error, no pasa nada y es necesario
+  mount /dev/nombre-partición-efi /boot/efi
+  # verifica que las nuevas particiones esten montadas con su tipo
   lsblk
-```
-
-#### Configura los "espejos" más rápidos para el sistema
-Esto es más que todo para
-```bash
-  cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.bak
-  ls  /etc/pacman.d
-  pacman -Sy
-  pacman -S pacman-contrib && rankmirrors -n 10 /etc/pacman.d/mirrorlist.bak > /etc/pacman.d/mirrorlist
 ```
 
 #### Instala el Kernel de Linux junto con los programas necesarios
 ```bash
   # este comando contiene la instalación de kernel y otros programas necesarios
-  pacstrap -i /mnt linux linux-firmware base base-devel nano neovim code git neofetch network-manager-applet netctl dhcpcd dialog wpa_supplicant brightnessctl volumeicon cbatticon vlc bluez firefox xterm alacritty pulseaudio pavucontrol pamixer htop thunar rofi scrot redshift feh xorg unzip picom geeqie
-  # conozca los archivos de sistemas /root
+  pacstrap /mnt linux linux-firmware base base-devel nano neovim code git java neofetch network-manager-applet netctl dhcpcd dialog wpa_supplicant brightnessctl volumeicon cbatticon vlc firefox xterm alacritty pulseaudio pavucontrol pamixer htop thunar rofi scrot redshift feh unzip picom geeqie
+ 
+ # conozca los archivos de sistemas /root
   ls /mnt
 ```
 
 #### Genera tabla del sistema de archivos FSTAB
 El fichero fstab se encuentra comúnmente en sistemas Unix como parte de la configuración del sistema. Lo más destacado de este fichero es la lista de discos y particiones disponibles. En ella se indica cómo montar cada dispositivo y qué configuración utilizar.
 ```bash
-  genfstab -U /mnt >> /mnt/etc/fstab
+  genfstab /mnt >> /mnt/etc/fstab
   cat /mnt/etc/fstab
 ```
 
-#### Establece una contraseña de administrador y de usuario
+#### Establece una contraseña de administrador y nombre de usuario
 ```bash
   arch-chroot /mnt
   passwd
@@ -119,39 +108,44 @@ El fichero fstab se encuentra comúnmente en sistemas Unix como parte de la conf
   Defaults timestamp_timeout=0
 ```
 
-#### Establezca el idioma para el SO Arch Linux
-```bash
-  # abra el archvip locale.gen y descomente la línea (#es_CO.UTF-8 UTF-8)
-  nano /etc/locale.gen
-  hwclock -w
-  locale-gen
-  echo KEYMAP=la-latin1 > /etc/vconsole.conf
-  echo LANG=es_CO.UTF-8 > /etc/locale.conf
-  export LANG=es_CO.UTF-8
-```
-
 #### Establezca un nombre para su PC
 ```bash
   echo <nombre-del-pc> > /etc/hostname
 ```
-  
-#### Actualiza la hora
+
+#### Establezca el idioma para el SO Arch Linux
 ```bash
+  # busca tu zona horaria en el siguente listado, en mi caso fue: America/Bogota
+  timedatectl list-timezones
+  
+  # actualiza tu zona horaria con
   ln -sf /usr/share/zoneinfo/America/Bogota /etc/localtime
+  
+  # configura el idoma del sistema
+  # primero abra el archvio locale.gen y descomente la línea > #es_CO.UTF-8 UTF-8
+  nano /etc/locale.gen
+  locale-gen
+  
+  # configura el reloj
+  hwclock -w
+  
+  # verfica si tu fecha y hora es correcta con
+  date
+```
+  
+#### Configura el idoma y distribución del teclado en latino permanente
+```bash
+  echo KEYMAP=latam > /etc/vconsole.conf
+  echo LANG=es_CO.UTF-8 > /etc/locale.conf
 ```
 
-#### Instala el cargador de arranque GRUB
+#### Instala el cargador de arranque GRUB y configuralo
 ```bash
-  mkdir /boot/efi
-  lsblk
-  mount /dev/nombre-partición-efi-de-100M /boot/efi
-  # si te arroja error es normal
-  
   pacman -S grub efibootmgr os-prober networkmanager
+  # descomente la última línea en el archivo grub nada más
   nano /etc/default/grub
-  # descomente la última línea nada más
   
-  # ahora ejecute este
+  # ahora ejecute el comando final
   grub-install --target=x86_64-efi --bootloader-id=’Arch Linux’ --recheck
 ```
 
@@ -169,19 +163,20 @@ El fichero fstab se encuentra comúnmente en sistemas Unix como parte de la conf
 
 ### Una vez te hayas logueado con usuario y contraseña
 
-Conectate a tu red WiFi, con el siguiente comando
+Conectate a tu red WiFi
 ```bash
   sudo su
   nmcli dev wifi connect <nombre-de-la-red> password <la-clave>
-```
-Si lo prefieres también puedes actualizar todos los paquetes del sistema
-```bash
-  pacman -Syys
 ```
 
 #### Instala los driver de la tarjeta gráfica Intel
 ```bash
   pacman -S xf86-video-intel intel-ucode
+```
+
+#### Si prefiere también puede actualizar todos los paquetes del sistema
+```bash
+  pacman -Sys
 ```
 
 #### Instala driver para el TouchPad
@@ -190,8 +185,8 @@ Si lo prefieres también puedes actualizar todos los paquetes del sistema
   cd /etc/X11/xorg.conf.d/
   nano 30-touchpad.conf
   
-  # agrege estas líneas
-  Section "Inputclass"
+  # agregele estas líneas
+  Section "InputClass"
     Identifier "devname"
     Driver "libinput"
     Option "Tapping" "on"
@@ -199,27 +194,40 @@ Si lo prefieres también puedes actualizar todos los paquetes del sistema
    EndSection
 ```
 
-#### Instalar el gestor de Ventanas QTILE junto al gestor de inicio de sesión LIGHTDM:
-En este caso se instalará QTILE ya que es el mejor gestor de ventanas para trabajar en Arch que exite hasta el momento en ***GNU/Linux***, más que todo es para el flujo sin tener que usar tanto el mouse, ejecuta los siguientes comandos para culminar esta guía.
-
-Si quieres descargar mi configuración de QTILE, clone este repositorio
+#### Instala Xorg y Mesa
 ```bash
+  sudo pacman -S xorg-server xorg-xinit mesa mesa-demos
+```
+
+#### Instala el Gestor de Ventanas GNOME o QTILE Junto al Gestor de Inicio de Sesión GDM o LIGHTDM:
+En este caso se instalará GNOME y QTILE ya que son los mejores gestor de ventanas para trabajar en Arch que exite hasta el momento en ***GNU/Linux***, Qtile es más que todo para el flujo de trabajo sin tener que usar tanto el mouse y GNOME todo lo contrario, ejecuta los siguientes comandos para culminar esta guía.
+
+Si tu deseas tener Arch con el gestor Gnome igual a Ubuntu pues sigue estos pasos.
+```
+  sudo pacman -S gnome gdm
+  # encienda el serviciode inicio de sesión
+  sudo systemctl enable gdm.service
+  #  reinicie para que vea los cambios
+  reboot
+```
+
+Pero si usted quiere ser un Hacker en con Arch Linux, entonces instale el gestor de escritorio Qtile y Lightdm.
+
+
+Si quieres clonate mi configuración de QTILE.
+```bash
+  sudo pacman -S qtile lightdm lightdm-gtk-greeter
+  # edite lo siguiente
+  sudo nano /etc/lightdm/lightdm.conf
+  # en el archivo descomente la línea -> #greeter-session y agréguele esto
+  greeter-session = lightdm-gtk-greeter
+```
+
+Si instalaste Qtile clonate esta configuración
+``bash
   cd /home/<username>/
   git clone https://github.com/josuerom/arch-linux.git
-  mv arch-linux dotfiles
-```
-
-Acto seguido, descarga el gestor de ventanas y de sesión, el archivo <lightdm.conf> debe editarlo.
-```
-  pacman -S qtile lightdm lightdm-gtk-greeter
-  nano /etc/lightdm/lightdm.conf
-  # en el archivo descomente la línea
-  # #greeter-session y agrégue esto
-  greeter-session = lightdm-gtk-greeter
-
-  # encienda el servicio y reinicie para que vea los cambios
-  systemctl enable lightdm.service
-  reboot
+  cp -r arch-linux/config/qtile ~/.config/
 ```
 
 Y listo, si todo lo realizaste bien, ya tendrías el sistema operativo Arch Linux completamente instalado y funcionando a la perfección, solo te faltaría personalizar el gestor de ventanas ***Qtile*** para que no tengas la pantalla en negro y sin nada.
