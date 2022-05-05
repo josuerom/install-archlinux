@@ -223,11 +223,12 @@ Si quieres clonate mi configuración de QTILE.
   greeter-session = lightdm-gtk-greeter
 ```
 
-Si instalaste Qtile clonate esta configuración
+Si instalaste Qtile clonate esta configuración para que se vea mejor
 ```bash
   cd /home/<username>/
   git clone https://github.com/josuerom/arch-linux.git
   cp -r arch-linux/config/qtile ~/.config/
+  reboot
 ```
 
 Y listo, si todo lo realizaste bien, ya tendrías el sistema operativo Arch Linux completamente instalado y funcionando a la perfección, solo te faltaría personalizar el gestor de ventanas ***Qtile*** para que no tengas la pantalla en negro y sin nada.
