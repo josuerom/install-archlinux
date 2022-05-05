@@ -165,25 +165,24 @@ El fichero fstab se encuentra comúnmente en sistemas Unix como parte de la conf
 
 Conectate a tu red WiFi
 ```bash
-  sudo su
   nmcli dev wifi connect <nombre-de-la-red> password <la-clave>
 ```
 
 #### Instala los driver de la tarjeta gráfica Intel
 ```bash
-  pacman -S xf86-video-intel intel-ucode
+  sudo pacman -S xf86-video-intel intel-ucode
 ```
 
 #### Si prefiere también puede actualizar todos los paquetes del sistema
 ```bash
-  pacman -Sys
+  sudo pacman -Sys
 ```
 
 #### Instala driver para el TouchPad
 ```bash
-  pacman -S xf86-input-libinput
+  sudo pacman -S xf86-input-libinput
   cd /etc/X11/xorg.conf.d/
-  nano 30-touchpad.conf
+  sudo nano 30-touchpad.conf
   
   # agregele estas líneas
   Section "InputClass"
@@ -204,10 +203,10 @@ En este caso se instalará GNOME y QTILE ya que son los mejores gestor de ventan
 
 Si tu deseas tener Arch con el gestor Gnome igual a Ubuntu pues sigue estos pasos.
 ```
-  sudo pacman -S gnome gdm
+  sudo pacman -S gnome gnome-extra gdm
   # encienda el serviciode inicio de sesión
   sudo systemctl enable gdm.service
-  #  reinicie para que vea los cambios
+  # reinicie para que vea los cambios
   reboot
 ```
 
