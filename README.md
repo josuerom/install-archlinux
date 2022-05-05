@@ -230,9 +230,9 @@ Si instalaste Qtile clonate esta configuración para que se vea mejor
   reboot
 ```
 
-Y listo, si todo lo realizaste bien, ya tendrías el sistema operativo Arch Linux completamente instalado y funcionando a la perfección, solo te faltaría personalizar el gestor de ventanas ***Qtile*** para que no tengas la pantalla en negro y sin nada.
+Y listo, si todo lo realizaste bien, ya tendrías el sistema operativo Arch Linux completamente instalado y funcionando a la perfección, solo te faltaría personalizar el gestor de ventanas ***Qtile*** ¡si lo instalaste! para que no tengas la pantalla en negro y nada agradable.
 
-Pero si no pudiste instalarlo la primera vez con esta ayuda medio entendible para los que no tienen conocimientos de linux, si tu fuiste uno contactame vía email para ayuderte.
+Pero si no pudiste instalarlo la primera vez con esta ayuda medio entendible para los que no tienen conocimientos de linux, entonces contactame vía email para brindarte ayuda gratis.
 ```email
   josueromram@outlook.es
 ```
