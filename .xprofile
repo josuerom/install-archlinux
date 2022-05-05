@@ -16,16 +16,16 @@ fi
 picom &
 # Network
 nm-applet &
+volumeicon &
+cbatticon &
 # Keyboard Layout
-setxkbmap es &
+setxkbmap latam &
 # Automount Devices
 udiskie -t &
 # Java Fonts
 xsettingsd &
 # Wallpaper
-feh --bg-scale Imágenes/02.jpg
+feh --bg-scale $HOME/Imágenes/wallpapaer.png
 # Overlay Bar
 xob-pulse-py | xob -s pulse &
 xob-brightness-js | xob -s brightness &
-
-
