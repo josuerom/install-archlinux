@@ -80,7 +80,7 @@ Este paso es para montar las participaciones previamente formateadas en la ruta 
 #### Instala el Kernel de Linux junto con los programas necesarios
 ```bash
   # este comando contiene la instalación de kernel y otros programas necesarios
-  pacstrap /mnt linux linux-firmware base base-devel nano neovim code git java neofetch network-manager-applet netctl dhcpcd dialog wpa_supplicant brightnessctl volumeicon cbatticon vlc firefox xterm alacritty pulseaudio pavucontrol pamixer htop thunar rofi scrot redshift feh unzip picom geeqie
+  pacstrap /mnt linux linux-firmware base base-devel nano neovim code git neofetch network-manager-applet netctl dhcpcd dialog wpa_supplicant brightnessctl volumeicon cbatticon vlc firefox xterm alacritty pulseaudio pavucontrol pamixer htop thunar rofi scrot redshift nitrogen unzip picom geeqie
  
  # conozca los archivos de sistemas /root
   ls /mnt
@@ -105,7 +105,7 @@ El fichero fstab se encuentra comúnmente en sistemas Unix como parte de la conf
   EDITOR=nano visudo
   # descomente la sugiente línea: # %wheel ALL=(ALL) ALL
   # debajo de ella agregue esto:
-  Defaults timestamp_timeout=0
+  %<username> ALL=(ALL) ALL
 ```
 
 #### Establezca un nombre para su PC
