@@ -68,7 +68,7 @@ Este paso es para montar las participaciones previamente formateadas en la ruta 
 ```bash
   mount /dev/nombre-particion-root /mnt
   mkdir /mnt/home
-  mkdir /mnt/boot/efi
+  mkdir /boot/efi
   mount /dev/nombre-particion-home /mnt/home
   
   # si te comando te arroja error, no pasa nada y es necesario
