@@ -72,7 +72,7 @@ Este paso es para montar las participaciones previamente formateadas en la ruta 
   mount /dev/nombre-particion-home /mnt/home
   
   # si te comando te arroja error, no pasa nada y es necesario
-  mount /dev/nombre-partición-efi /boot/efi
+  mount /dev/nombre-partición-efi /mnt/boot/efi
   # verifica que las nuevas particiones esten montadas con su tipo
   lsblk
 ```
