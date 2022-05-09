@@ -190,6 +190,11 @@ Conectate a tu red WiFi
   sudo pacman -Sys
 ```
 
+#### Instala Xorg y Mesa
+```bash
+  sudo pacman -S xorg-server xorg-xinit mesa mesa-demos
+```
+
 #### Instala driver para el TouchPad
 ```bash
   sudo pacman -S xf86-input-libinput
@@ -203,11 +208,6 @@ Conectate a tu red WiFi
     Option "Tapping" "on"
     Option "NaturalScrolling" "true"
    EndSection
-```
-
-#### Instala Xorg y Mesa
-```bash
-  sudo pacman -S xorg-server xorg-xinit mesa mesa-demos
 ```
 
 #### Instala el Gestor de Ventanas GNOME o QTILE Junto al Gestor de Inicio de Sesión GDM o LIGHTDM:
