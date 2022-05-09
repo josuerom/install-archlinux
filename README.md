@@ -30,7 +30,7 @@ Necesitas conexión a internet en tu máquina para poder llevar a cabo las próx
   rfkill unblock all
   iwctl --passphrase <clave-wifi> station wlan0 connect <nombre-de-red>
   # verifica si tienes internet con
-  ping archlinux.org -c 3
+  ping 181.237.45.160 -c 4
 ```
 
 #### Conoce todas las particiones del disco duro
@@ -68,7 +68,7 @@ Este paso es para montar las participaciones previamente formateadas en la ruta 
 ```bash
   mount /dev/nombre-particion-root /mnt
   mkdir /mnt/home
-  mkdir /boot/efi
+  mkdir /mnt/boot/efi
   mount /dev/nombre-particion-home /mnt/home
   
   # si te comando te arroja error, no pasa nada y es necesario
@@ -79,8 +79,9 @@ Este paso es para montar las participaciones previamente formateadas en la ruta 
 
 #### Instala el Kernel de Linux junto con los programas necesarios
 ```bash
-  # este comando contiene la instalación de kernel y otros programas necesarios
-  pacstrap /mnt linux linux-firmware base base-devel nano neovim code git neofetch network-manager-applet netctl dhcpcd dialog wpa_supplicant brightnessctl volumeicon cbatticon vlc firefox xterm alacritty pulseaudio pavucontrol pamixer htop thunar rofi scrot redshift nitrogen unzip picom geeqie
+  # este comando contiene la instalación de kernel
+  # los paquetes que no quiera tener no los instale
+  pacstrap /mnt linux linux-firmware base base-devel nano code git neofetch network-manager-applet netctl dhcpcd dialog wpa_supplicant brightnessctl volumeicon cbatticon vlc firefox xterm alacritty pulseaudio pavucontrol pamixer htop thunar rofi scrot redshift nitrogen unzip picom geeqie
  
  # conozca los archivos de sistemas /root
   ls /mnt
@@ -117,6 +118,8 @@ El fichero fstab se encuentra comúnmente en sistemas Unix como parte de la conf
 ```bash
   # busca tu zona horaria en el siguente listado, en mi caso fue: America/Bogota
   timedatectl list-timezones
+  timedatectl set-timezone America/Bogota
+  timedatectl status
   
   # actualiza tu zona horaria con
   ln -sf /usr/share/zoneinfo/America/Bogota /etc/localtime
@@ -146,7 +149,7 @@ El fichero fstab se encuentra comúnmente en sistemas Unix como parte de la conf
   nano /etc/default/grub
   
   # ahora ejecute el comando final
-  grub-install --target=x86_64-efi --bootloader-id=’Arch Linux’ --recheck
+  grub-install --target=x86_64-efi --bootloader-id=’Arch’ --recheck
 ```
 
 ```bash  
