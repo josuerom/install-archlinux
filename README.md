@@ -99,7 +99,7 @@ Este paso es para montar las participaciones previamente formateadas en la ruta 
 #### Genera tabla del sistema de archivos FSTAB
 El fichero fstab se encuentra comúnmente en sistemas Unix como parte de la configuración del sistema. Lo más destacado de este fichero es la lista de discos y particiones disponibles. En ella se indica cómo montar cada dispositivo y qué configuración utilizar.
 ```bash
-  genfstab /mnt >> /mnt/etc/fstab
+  genfstab -U /mnt >> /mnt/etc/fstab
   cat /mnt/etc/fstab
 ```
 
