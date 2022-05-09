@@ -215,8 +215,8 @@ En este caso se instalará GNOME y QTILE ya que son los mejores gestor de ventan
 
 Si tu deseas tener Arch con el gestor Gnome igual a Ubuntu pues sigue estos pasos.
 ```
-  sudo pacman -S gnome gnome-extra gdm
-  # encienda el serviciode inicio de sesión
+  sudo pacman -S gnome gdm
+  # encienda el servicio de inicio de sesión
   sudo systemctl enable gdm.service
   # reinicie para que vea los cambios
   reboot
