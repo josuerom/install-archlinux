@@ -77,11 +77,20 @@ Este paso es para montar las participaciones previamente formateadas en la ruta 
   lsblk
 ```
 
+#### Configure los espejos más rápidos
+```bash
+  cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.bak
+  pacman -Sy
+  pacman -S pacman-contrib
+  rankmirrors -n 10 /etc/pacman.d/mirrorlist.bak > /etc/pacman.d/mirror list
+  cat /etc/pacman.d/mirrorlist
+```
+
 #### Instala el Kernel de Linux junto con los programas necesarios
 ```bash
   # este comando contiene la instalación de kernel
   # los paquetes que no quiera tener no los instale
-  pacstrap /mnt linux linux-firmware base base-devel nano code git neofetch network-manager-applet netctl dhcpcd dialog wpa_supplicant brightnessctl volumeicon cbatticon vlc firefox xterm alacritty pulseaudio pavucontrol pamixer htop thunar rofi scrot redshift nitrogen unzip picom geeqie
+  pacstrap -i /mnt linux linux-firmware base base-devel nano git network-manager-applet netctl dhcpcd dialog wpa_supplicant vlc firefox alacritty htop unzip
  
  # conozca los archivos de sistemas /root
   ls /mnt
