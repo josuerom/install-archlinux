@@ -177,7 +177,7 @@ El fichero fstab se encuentra comúnmente en sistemas Unix como parte de la conf
 
 Conectate a tu red WiFi
 ```bash
-  nmcli dev wifi connect <nombre-de-la-red> password <la-clave>
+  sudo nmcli dev wifi connect <nombre-de-la-red> password <la-clave>
 ```
 
 #### Instala los driver de la tarjeta gráfica Intel
