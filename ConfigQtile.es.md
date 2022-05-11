@@ -813,7 +813,7 @@ Estos son algunos atajos de teclado comunes a todos mis gestores de ventanas:
 | **mod + b**             | lanza el navegador firefox                   |
 | **mod + e**             | lanza el explorador de archivos nautilus     |
 | **mod + enter**         | lanza la terminal alacritty                  |
-| **mod + t**             | lanza luz nocturna                           |
+| **mod + r**             | lanza luz nocturna                           |
 | **mod + shift + r**     | apagas la luz nocturna                       |
 | **mod + ctrl + r**      | reiniciar gestor de ventana                  |
 | **mod + ctrl + q**      | cerrar sesión                                |
