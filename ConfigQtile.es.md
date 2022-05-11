@@ -804,11 +804,17 @@ Estos son algunos atajos de teclado comunes a todos mis gestores de ventanas:
 | **mod + shift + k**     | mover ventana arriba                         |
 | **mod + shift + f**     | pasar ventana a flotante                     |
 | **mod + tab**           | cambiar la disposición de las ventanas       |
-| **mod + [1-9]**         | cambiar al espacio de trabajo N (1-9)        |
-| **mod + shift + [1-9]** | mandar ventana al espacio de trabajo N (1-9) |
+| **mod + [1-7]**         | cambiar al espacio de trabajo N (1-7)        |
+| **mod + shift + [1-7]** | mandar ventana al espacio de trabajo N (1-9) |
 | **mod + punto**         | enfocar siguiente monitor                    |
 | **mod + coma**          | enfocar monitor previo                       |
 | **mod + w**             | cerrar ventana                               |
+| **mod + r**             | lanza el menu de aplicaciones                |
+| **mod + b**             | lanza el navegador firefox                   |
+| **mod + e**             | lanza el explorador de archivos nautilus     |
+| **mod + enter**         | lanza la terminal alacritty                  |
+| **mod + t**             | lanza luz nocturna                           |
+| **mod + shift + r**     | apagas la luz nocturna                       |
 | **mod + ctrl + r**      | reiniciar gestor de ventana                  |
 | **mod + ctrl + q**      | cerrar sesión                                |
 
