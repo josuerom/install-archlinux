@@ -35,12 +35,6 @@ Si nesecitas algún grabador de pantalla, recomiendo que te instales este.
   yay -S libreoffice-fresh-sdk
 ```
 
-#### Instala Notion
-Con esta herramientas podrás gestionar tus proyectos, tareas, compromisos, etc... así no se te olvidaría nada, si deseas pruebalo.
-```bash
-  yay -S notion
-```
-
 #### Instala un Antivirus
 ```bash
   yay -S libredefender
@@ -52,12 +46,12 @@ Si trabajas con java y eres fanatico del entorno de desarrollo integrado o IDE I
   yay -S intellij-idea-community-edition
 ```
 
-#### Instala
+#### Instala Python 3
 ```bash
-
+  yay -S python39
 ```
 
-#### Instala
+#### Instala OpenJDK11 - Java
 ```bash
-
+  yay -S jdk11-msopenjdk-bin 
 ```
