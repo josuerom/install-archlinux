@@ -46,9 +46,9 @@ Si trabajas con java y eres fanatico del entorno de desarrollo integrado o IDE I
   yay -S intellij-idea-community-edition
 ```
 
-#### Instala Python 3
+#### Instala Microsoft Teams
 ```bash
-  yay -S python39
+  yay -S teams
 ```
 
 #### Instala OpenJDK11 - Java
