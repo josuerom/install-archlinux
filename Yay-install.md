@@ -55,3 +55,9 @@ Si trabajas con java y eres fanatico del entorno de desarrollo integrado o IDE I
 ```bash
   yay -S jdk11-msopenjdk-bin 
 ```
+
+
+#### Instala Spotify
+```bash
+  yay -S spotify 
+```
