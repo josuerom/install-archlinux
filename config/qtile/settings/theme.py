@@ -1,7 +1,7 @@
 # Modificado por Josué Romero
 # Creado po Antonio Sarosi
 # https://twitter.com/josueromr
-# https://github.com/josuerom/arch-linux
+# https://github.com/josuerom/Install-ArchLinux
 
 # Theming for Qtile
 
