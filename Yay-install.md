@@ -1,4 +1,4 @@
-## Pack de Programas Recomendados para que Instales en Arch Linux.
+## Pack de Programas Recomendados para que Instales en tu Distribución Arch Linux.
 Acabas de entrar a donde algún o algunos programas de la lista te puedan interesar.
 
 #### Instala Yay
@@ -6,7 +6,7 @@ Acabas de entrar a donde algún o algunos programas de la lista te puedan intere
 
 Ejecute dentro de > $HOME/
 ```bash
-  git clone https://aur.archlinux.org/yay-git.git && cd yay-git && makepkg -si
+  cd ~ && git clone https://aur.archlinux.org/yay-git.git && cd yay-git && makepkg -si
 ```
 
 #### Instala Google Chrome
@@ -15,12 +15,10 @@ Ejecute dentro de > $HOME/
   yay -S google-chrome
 ```
 
-#### Instala las Fuentes
+#### Instala Buenas Fuentes
 La fuente para programar y realizar otra tareas es importante, ya que así te sentirás más agusto al leer y escribirlo, yo recomiento que use alguna de estas tres fuentes muy poderosas (UbuntuMono Nerd Font, JetBrains Mono o Cascadia Code).
 ```bash
-  yay -S nerd-fonts-ubuntu-mono
-  yay -S ttf-jetbrains-mono
-  yay -S ttf-cascadia-code
+  yay -S nerd-fonts-ubuntu-mono ttf-jetbrains-mono ttf-cascadia-code
 ```
 
 #### Instala OBS Studio
@@ -40,10 +38,25 @@ Si nesecitas algún grabador de pantalla, recomiendo que te instales este.
   yay -S libredefender
 ```
 
+#### Instala OpenJDK 11
+```bash
+  yay -S jdk11-temurin 
+```
+
 #### Instala Intellij IDEA
 Si trabajas con java y eres fanatico del entorno de desarrollo integrado o IDE Intellij IDEA, pues no esperes más y ¡instalalo ya!.
 ```bash
   yay -S intellij-idea-community-edition
+```
+
+#### Instala Sublime Text 4
+```bash
+  yay -S sublime-text-4
+```
+
+#### Instala Visual Studio Code
+```bash
+  yay -S visual-studio-code-bin
 ```
 
 #### Instala Microsoft Teams
@@ -51,13 +64,12 @@ Si trabajas con java y eres fanatico del entorno de desarrollo integrado o IDE I
   yay -S teams
 ```
 
-#### Instala OpenJDK11 - Java
-```bash
-  yay -S jdk11-msopenjdk-bin 
-```
-
-
 #### Instala Spotify
 ```bash
   yay -S spotify 
+```
+
+#### Instala Utorrent
+```bash
+  yay -S torrent-file-editor 
 ```
