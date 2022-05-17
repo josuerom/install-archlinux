@@ -1,7 +1,7 @@
 # Modificador por Josué Romero
 # Creador Antonio Sarosi
 # https://twitter.com/josueromr
-# https://github.com/josuerom/Install-ArchLinux
+# https://github.com/josuerom/install-archlinux
 
 from libqtile import layout
 from libqtile.config import Match
