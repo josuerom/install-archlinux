@@ -1,7 +1,7 @@
 # Modificado por Josué Romero
 # Creado por Antonio Sarosi
 # https://twitter.com/josueromr
-# https://github.com/josuerom/Install-ArchLinux
+# https://github.com/josuerom/install-archlinux
 
 from libqtile.config import Key, Group
 from libqtile.command import lazy
