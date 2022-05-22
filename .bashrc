@@ -1,20 +1,27 @@
-############################################################
-# ~/.bashrc
-############################################################
+# .bashrc
 
-# Distribute bashrc into smaller, more specific files
-source ~/.config/dotfiles/bash/configs/alias
-source ~/.config/dotfiles/bash/configs/git
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+	. /etc/bashrc
+fi
 
-# ${HOME}/.bashrc: executed by bash(1) for non-login shells.
-# If not running interactively, don't do anything
-[ -z "$PS1" ] && return
+# User specific environment
+if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]
+then
+    PATH="$HOME/.local/bin:$HOME/bin:$PATH"
+fi
+export PATH
 
-# User Info
-export USERNAME="josuerom"
-export NICKNAME="JR2"
+# Uncomment the following line if you don't like systemctl's auto-paging feature:
+# export SYSTEMD_PAGER=
 
-# Welcome message
-echo -ne "Buen día, $NICKNAME! Hoy es "; date '+%A, %-d de %B %Y'
-echo -e "¡Este es tu momento Hackermen :)!";
-echo
+# User specific aliases and functions
+if [ -d ~/.bashrc.d ]; then
+	for rc in ~/.bashrc.d/*; do
+		if [ -f "$rc" ]; then
+			. "$rc"
+		fi
+	done
+fi
+
+unset rc
