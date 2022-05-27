@@ -1,4 +1,4 @@
-# Presento el sistema perfecto y deseado para mis desarrollos
+# Presento el sistema ideal y perfecto para desarrollar software
 # https://github.com/josuerom/install-archlinux/blob/main/config/neofetch/config.conf-fedora
 print_info() {
     info title
