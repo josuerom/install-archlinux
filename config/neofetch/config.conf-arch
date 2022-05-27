@@ -1,5 +1,5 @@
-# See this wiki page for more info:
-# https://github.com/dylanaraps/neofetch/wiki/Customizing-Info
+# Presento el sistema ideal y perfecto para desarrollar software
+# https://github.com/josuerom/install-archlinux/blob/main/config/neofetch/config.conf-arch
 print_info() {
     info title
     info underline
