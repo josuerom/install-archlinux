@@ -1,5 +1,5 @@
 # Presento el sistema perfecto y deseado para mis desarrollos
-# https://github.com/josuerom/install-archlinux/new/main/config/neofetch/config.conf-fedora
+# https://github.com/josuerom/install-archlinux/blob/main/config/neofetch/config.conf-fedora
 print_info() {
     info title
     info underline
