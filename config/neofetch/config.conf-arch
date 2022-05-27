@@ -4,8 +4,8 @@ print_info() {
     info title
     info underline
 
-    info "OS" "Arch Linux"
-    prin "Host" "Lenovo IdeaPad 5"
+    prin "OS" "Arch Linux"
+    prin "Host" "IdeaPad 5i Pro"
     info "Kernel" kernel
     info "Uptime" uptime
     info "Packages" packages
@@ -17,27 +17,14 @@ print_info() {
     info "Theme" theme
     info "Icons" icons
     info "Terminal" term
-    prin "CPU" "Intel Core i9-12900KS (16) @5.50GHz"
+    prin "CPU" "Intel Core i9-12900KS (16) @ 5.50GHz"
     prin "GPU" "Intel UHD Graphics 770"
     info "Memory" memory
-
-    # info "GPU Driver" gpu_driver  # Linux/macOS only
-    # info "CPU Usage" cpu_usage
-    # info "Disk" disk
-    # info "Battery" battery
-    # info "Font" font
-    # info "Song" song
-    # [[ "$player" ]] && prin "Music Player" "$player"
-    # info "Local IP" local_ip
-    # info "Public IP" public_ip
-    # info "Users" users
-    # info "Locale" locale  # This only works on glibc systems.
-
+    
     info cols
 }
 
 # Title
-
 
 # Hide/Show Fully qualified domain name.
 #
@@ -48,7 +35,6 @@ title_fqdn="off"
 
 
 # Kernel
-
 
 # Shorten the output of the kernel function.
 #
