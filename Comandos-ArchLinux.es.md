@@ -67,3 +67,7 @@ mv /ruta-del-archivo/ nombre-nuevo
 rm -rf /ruta-del-archivo-o-carpeta/
 
 ```
+# Ruta de música por defecto en ArchCratf
+```bash
+cd /etc/skel/Music && ls
+```
