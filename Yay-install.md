@@ -15,7 +15,7 @@ Ejecute dentro de > $HOME/
   yay -S google-chrome
 ```
 
-#### Instala Buenas Fuentes
+#### Instala Fuentes
 La fuente para programar y realizar otra tareas es importante, ya que así te sentirás más agusto al leer y escribirlo, yo recomiento que use alguna de estas tres fuentes muy poderosas (UbuntuMono Nerd Font, JetBrains Mono o Cascadia Code).
 ```bash
   yay -S nerd-fonts-ubuntu-mono ttf-jetbrains-mono ttf-cascadia-code
@@ -31,6 +31,11 @@ Si nesecitas algún grabador de pantalla, recomiendo que te instales este.
 ***LibreOffice*** es el hermano menor de Microsoft Office pero para trabajar en linux.
 ```bash
   yay -S libreoffice-fresh-sdk
+```
+
+#### Instala OnlyOffice 
+```bash
+  yay -S onlyoffice-bin 
 ```
 
 #### Instala un Antivirus
@@ -72,4 +77,19 @@ Si trabajas con java y eres fanatico del entorno de desarrollo integrado o IDE I
 #### Instala Utorrent
 ```bash
   yay -S torrent-file-editor 
+```
+
+#### Instala Notion
+```bash
+  yay -S notion-app 
+```
+
+#### Instala Docker
+```bash
+  yay -S kdocker
+```
+
+#### Instala Stacer
+```bash
+  yay -S stacer 
 ```
