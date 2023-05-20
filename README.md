@@ -30,7 +30,7 @@ Necesitas conexión a internet en tu máquina para poder llevar a cabo las próx
   rfkill unblock all
   iwctl --passphrase <clave-wifi> station wlan0 connect <nombre-de-red>
   # verifica si tienes internet con
-  ping 181.237.45.160 -c 4
+  ping www.facebook.com -c 4
 ```
 
 #### Conoce todas las particiones del disco duro
@@ -145,7 +145,7 @@ El fichero fstab se encuentra comúnmente en sistemas Unix como parte de la conf
   date
 ```
   
-#### Configura el idoma y distribución del teclado en latino permanente
+#### Configura el idoma y distribución del teclado en español latino permanente
 ```bash
   echo KEYMAP=latam > /etc/vconsole.conf
   echo LANG=es_CO.UTF-8 > /etc/locale.conf
@@ -157,7 +157,7 @@ El fichero fstab se encuentra comúnmente en sistemas Unix como parte de la conf
   # descomente la última línea en el archivo grub nada más
   nano /etc/default/grub
   
-  # ahora ejecute el comando final
+  # ahora ejecute el comando
   grub-install --target=x86_64-efi --bootloader-id=’Arch’ --recheck
 ```
 
@@ -173,26 +173,20 @@ El fichero fstab se encuentra comúnmente en sistemas Unix como parte de la conf
   reboot
 ```
 
-### Una vez te hayas logueado con usuario y contraseña
-
-Conectate a tu red WiFi
+### Una vez te hayas logueado con tu usuario y contraseña
+Deberás conectarte a tu red WiFi inalambrica
 ```bash
   sudo nmcli dev wifi connect <nombre-de-la-red> password <la-clave>
 ```
 
 #### Instala los driver de la tarjeta gráfica Intel
 ```bash
-  sudo pacman -S xf86-video-intel intel-ucode
+  sudo pacman -S xf86-video-intel intel-ucode -y && sudo pacman -Syy -y
 ```
 
-#### Si prefiere también puede actualizar todos los paquetes del sistema
+#### Instala los drivers para el correcto funcionamiento
 ```bash
-  sudo pacman -Sys
-```
-
-#### Instala Xorg y Mesa
-```bash
-  sudo pacman -S xorg-server xorg-xinit mesa mesa-demos
+  sudo pacman -S xorg-server xorg-xinit mesa nvidia-dkms-tkg nvidia-470xx-dkms-tkg
 ```
 
 #### Instala driver para el TouchPad
@@ -201,7 +195,7 @@ Conectate a tu red WiFi
   cd /etc/X11/xorg.conf.d/
   sudo nano 30-touchpad.conf
   
-  # agregele estas líneas
+  # agregele estas líneas dentro de el archivo abierto
   Section "InputClass"
     Identifier "devname"
     Driver "libinput"
@@ -222,10 +216,9 @@ Si tu deseas tener Arch con el gestor Gnome igual a Ubuntu pues sigue estos paso
   reboot
 ```
 
-Pero si usted quiere ser un Hacker en con Arch Linux, entonces instale el gestor de escritorio Qtile y Lightdm.
+Pero si usted quiere ser no desea GNOME, entonces instale el gestor de escritorio Qtile y Lightdm.
 
-
-Si quieres clonate mi configuración de QTILE.
+Instale Qtile y el gestor de inicio de sesion que desee
 ```bash
   sudo pacman -S qtile lightdm lightdm-gtk-greeter
   # edite lo siguiente
@@ -234,19 +227,17 @@ Si quieres clonate mi configuración de QTILE.
   greeter-session = lightdm-gtk-greeter
 ```
 
-Si instalaste Qtile clonate esta configuración para que se vea mejor
+Si quiere clone ésta configuración de QTILE para que se vea mucho mejor su escritorio.
 ```bash
-  cd /home/<username>/
-  git clone https://github.com/josuerom/arch-linux.git
-  cp -r arch-linux/config/qtile ~/.config/
-  reboot
+  cd ~ && git clone https://github.com/josuerom/install-archlinux.git && cp -r arch-linux/config/qtile ~/.config/ && reboot
 ```
 
-Y listo, si todo lo realizaste bien, ya tendrías el sistema operativo Arch Linux completamente instalado y funcionando a la perfección, solo te faltaría personalizar el gestor de ventanas ***Qtile*** ¡si lo instalaste! para que no tengas la pantalla en negro y nada agradable.
+Y listo, si todo lo realizaste bien, ya tendrías el sistema operativo Arch Linux completamente instalado y funcionando, solo te faltaría personalizar el gestor de ventanas ***Qtile*** para que no tengas la pantalla en negro.
 
-Pero si no pudiste instalarlo la primera vez con esta ayuda medio entendible para los que no tienen conocimientos de linux, entonces contactame vía email para brindarte ayuda gratis.
+Pero si no pudiste instalarlo la primera vez con esta guía medio entendible que preparé para los que no tienen conocimientos de Linux, entonces contactame vía email para brindarte ayuda.
 ```email
   josueromram@outlook.es
 ```
 
-### Muchas gracias por leerte esta guía de instalación medio entendible.
+### Muchas gracias por leer ésta guía de instalación medio entendible.
+Cordialmente, josuerom
