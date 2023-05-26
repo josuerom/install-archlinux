@@ -65,11 +65,11 @@ alias userlist='cut -d: -f1 /etc/passwd'
 #Pacman for software managment
 alias upall='topgrade'
 alias search='sudo pacman -Qs'
-alias remove='sudo pacman -Rcns'
+alias uninstall='sudo pacman -Rcns'
 alias install='sudo pacman -S'
-alias linstall='sudo pacman -U '
-alias update='sudo pacman -Syyu && flatpak update'
-alias clrcache='sudo pacman -Scc'
+alias linstall='sudo pacman -U'
+alias update='sudo pacman -Syyu && flatpak update -y'
+alias clrcache='sudo pacman -Scc -y'
 alias orphans='sudo pacman -Rns $(pacman -Qtdq)'
 alias akring='sudo pacman -Sy archlinux-keyring --noconfirm'
 
@@ -80,21 +80,28 @@ alias yayr='yay -R '
 alias prem='paru -R '
 
 #Bash aliases
-alias mkfile='touch'
-alias del='rm -rf'
+alias nf='touch'
+alias df='rm -rf'
 alias jctl='journalctl -p 3 -xb'
-alias breload='cd ~ && source ~/.bashrc'
+alias rbash='source ~/.bashrc'
 alias cbash='nvim ~/.bashrc'
 alias zreload='cd ~ && source ~/.zshrc'
 alias pingme='ping -c64 github.com'
 alias cls='clear && neofetch'
 alias traceme='traceroute github.com'
 alias neo='neofetch'
-alias hacker='cmatrix'
+alias mhacker='cmatrix'
+alias ip='ifconfig'
+alias comcpp='g++ -std=c++20 -Wall -Wextra -Wshadow -Werror -Wpedantic -Wconversion -Wformat=2 -Djosuerom -o ~/workspace/build/sol.out'
+alias runcpp='~/workspace/build/sol.out'
+alias runjava='java'
+alias ccf='cd ~/workspace/codeforces/solutions/'
+alias cwork='cd ~/workspace/ && ls'
+alias tem-cpp='cp -r ~/workspace/templates/tem.cpp A_ && nvim A_'
+alias tem-java='cp -r ~/workspace/templates/tem.java A_ && nvim A_'
 alias c='clear'
 alias e='exit'
 alias ..='cd ..'
-alias v='--version'
 
 #hardware info --short
 alias hw='hwinfo --short'
@@ -109,10 +116,16 @@ alias ytv-best="yt-dlp -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/bestvideo+besta
 #GiT  command
 alias gi='git init'
 alias ga='git add .'
+alias gs='git status'
 alias gc='git commit -m'
 alias gp='git push'
 alias gcl='git clone'
-alias gpl='git pull'
+alias gl='git pull'
+alias gbr='git branch'
+alias gst='git stash'
+alias gd='git diff'
+alias gch='git checkout'
+alias glo='git log --oneline'
 alias token='echo "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"'
 
 #Copy/Remove files/dirs
@@ -140,7 +153,7 @@ alias home='cd ~'
 alias etc='cd /etc/'
 alias copt='cd /opt/'
 alias htdocs='cd /opt/lampp/htdocs/ && ls'
-alias xampp='cd /opt/lampp/ && sudo ./xampp-.run'
+alias xampp='cd /opt/lampp/'
 alias music='cd ~/Music'
 alias vids='cd ~/Videos'
 alias config='cd ~/.config'
@@ -172,11 +185,15 @@ alias rkeys='sudo pacman-key --refresh-keys'
 alias block="sudo hblock"
 alias unhblock="hblock -S none -D none"
 
+## login server minutero
+alias login-server='ssh minutero@rampart.engworks.tech -p 2233'
+
 #shutdown or reboot
 alias reboot='reboot'
 alias poweroff='poweroff'
 # quit session in DE: KDE Plasma
 alias logout='qdbus org.kde.ksmserver /KSMServer logout 0 0 0'
+#alias logout=''
 
 # # ex = EXtractor for all kinds of archives
 # # usage: ex <file>
