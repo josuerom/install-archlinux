@@ -1,0 +1,26 @@
+[user]
+    name = Josue Romero
+    email = 
+
+[core]
+    editor = nvim
+    autocrlf = input
+    filemode = false
+
+[alias]
+    st = status
+    co = checkout
+    ci = commit
+    br = branch
+    df = diff
+
+[credential]
+    helper = store
+
+[http]
+    sslVerify = true
+    postBuffer = 524288000
+
+[github]
+    user = josuerom
+    token = 
