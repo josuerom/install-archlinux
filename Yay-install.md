@@ -8,11 +8,16 @@ Ejecute dentro de > $HOME/
 ```bash
   cd ~ && git clone https://aur.archlinux.org/yay-git.git && cd yay-git && makepkg -si
 ```
+### Instala todo los programas de un solo tiro
+```bash
+  yay -S git nodejs htop cmatrix ranger ripgrep brave-bin nerd-fonts-ubuntu-mono ttf-jetbrains-mono ttf-cascadia-code obs-studio libreoffice-fresh-sdk onlyoffice-bin jdk-openjdk neovim visual-studio-code-bin spotify teams notion-app kdocker stacer
+```
 
-#### Instala Google Chrome
+#### Instala Navegador
 ***Google Chrome*** es un navegador ligero y muy intuitivo que llama mucho la atención y muchos desarroladores lo utilizan.
 ```bash
   yay -S google-chrome
+  yay -S brave-bin
 ```
 
 #### Instala Fuentes
@@ -38,30 +43,27 @@ Si nesecitas algún grabador de pantalla, recomiendo que te instales este.
   yay -S onlyoffice-bin 
 ```
 
-#### Instala un Antivirus
+#### Instala Antivirus
 ```bash
   yay -S libredefender
 ```
 
-#### Instala OpenJDK 11
+#### Instala OpenJDK Java
 ```bash
-  yay -S jdk11-temurin 
+  yay -S jdk-openjdk
 ```
 
 #### Instala Intellij IDEA
 Si trabajas con java y eres fanatico del entorno de desarrollo integrado o IDE Intellij IDEA, pues no esperes más y ¡instalalo ya!.
 ```bash
   yay -S intellij-idea-community-edition
-```
-
-#### Instala Sublime Text 4
-```bash
-  yay -S sublime-text-4
+  yay -S clion
 ```
 
 #### Instala Visual Studio Code
 ```bash
   yay -S visual-studio-code-bin
+  yay -S sublime-text-4
 ```
 
 #### Instala Microsoft Teams
@@ -71,12 +73,7 @@ Si trabajas con java y eres fanatico del entorno de desarrollo integrado o IDE I
 
 #### Instala Spotify
 ```bash
-  yay -S spotify 
-```
-
-#### Instala Utorrent
-```bash
-  yay -S torrent-file-editor 
+  yay -S spotify
 ```
 
 #### Instala Notion
@@ -91,5 +88,5 @@ Si trabajas con java y eres fanatico del entorno de desarrollo integrado o IDE I
 
 #### Instala Stacer
 ```bash
-  yay -S stacer 
+  yay -S stacer
 ```

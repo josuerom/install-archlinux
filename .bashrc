@@ -1,14 +1,6 @@
-#  author:  josuerom -- date: 20/05/23 13:21
+#  author: josuerom date: 20/05/23 13:21
 #  ~/.bashrc
 
-#Ibus settings if you need them
-#type ibus-setup in terminal to change settings and start the daemon
-#delete the hashtags of the next lines and restart
-#export GTK_IM_MODULE=ibus
-#export XMODIFIERS=@im=dbus
-#export QT_IM_MODULE=ibus
-
-# If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
 export HISTCONTROL=ignoreboth:erasedups
@@ -23,21 +15,16 @@ if [ -d "$HOME/.local/bin" ] ;
   then PATH="$HOME/.local/bin:$PATH"
 fi
 
-# Path to bat config
 export BAT_CONFIG_PATH="~/.config/bat/config.conf"
 
-# Replace stuff with bat
 alias cat='bat '
 alias rg='batgrep '
 alias man='tldr '
 
-#iso and version used to install ArcoLinux
 alias iso="cat /etc/dev-rel | awk -F '=' '/ISO/ {print $2}'"
 
-#ignore upper and lowercase when TAB completion
 bind 'set completion-ignore-case on'
 
-#systeminfo
 alias probe='sudo -E hw-probe -all -upload'
 
 # Replace ls with exa
@@ -75,13 +62,11 @@ alias akring='sudo pacman -Sy archlinux-keyring --noconfirm'
 
 # Paru/Yay stuff
 alias pget='paru -S '
-alias yays='yay -S '
-alias yayr='yay -R '
+alias yayi='yay -S '
+alias yayu='yay -R '
 alias prem='paru -R '
 
 #Bash aliases
-alias nf='touch'
-alias df='rm -rf'
 alias jctl='journalctl -p 3 -xb'
 alias rbash='source ~/.bashrc'
 alias cbash='nvim ~/.bashrc'
@@ -92,8 +77,8 @@ alias traceme='traceroute github.com'
 alias neo='neofetch'
 alias mhacker='cmatrix'
 alias ip='ifconfig'
-alias comcpp='g++ -std=c++20 -Wall -Wextra -Wshadow -Werror -Wpedantic -Wconversion -Wformat=2 -Djosuerom -o ~/workspace/build/sol.out'
-alias runcpp='~/workspace/build/sol.out'
+alias comcpp='g++ -Wall -Wextra -Wshadow -Wpedantic -Weffc++ -Wvla -Djosuerom -o ~/workspace/build/cpp-sol.out'
+alias runcpp='~/workspace/build/cpp-sol.out'
 alias runjava='java'
 alias ccf='cd ~/workspace/codeforces/solutions/'
 alias cwork='cd ~/workspace/ && ls'
@@ -117,23 +102,28 @@ alias ytv-best="yt-dlp -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/bestvideo+besta
 alias gi='git init'
 alias ga='git add .'
 alias gs='git status'
-alias gc='git commit -m'
+alias gc='git commit -a'
 alias gp='git push'
 alias gcl='git clone'
 alias gl='git pull'
+alias glom='git pull origin main'
 alias gbr='git branch'
 alias gst='git stash'
 alias gd='git diff'
 alias gch='git checkout'
 alias glo='git log --oneline'
-alias token='echo "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"'
+#alias token='echo "?"'
 
 #Copy/Remove files/dirs
 alias rmd='rm -r'
+alias rmf='rm -rf'
 alias srm='sudo rm'
 alias srmd='sudo rm -r'
 alias cpd='cp -R'
 alias scpd='sudo cp -R'
+
+#Create file
+alias nf='touch'
 
 #nano
 alias nz='$EDITOR ~/.zshrc'
@@ -191,9 +181,8 @@ alias login-server='ssh minutero@rampart.engworks.tech -p 2233'
 #shutdown or reboot
 alias reboot='reboot'
 alias poweroff='poweroff'
-# quit session in DE: KDE Plasma
+# quit session in KDE Plasma
 alias logout='qdbus org.kde.ksmserver /KSMServer logout 0 0 0'
-#alias logout=''
 
 # # ex = EXtractor for all kinds of archives
 # # usage: ex <file>
