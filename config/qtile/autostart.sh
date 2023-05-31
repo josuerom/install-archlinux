@@ -16,7 +16,7 @@ volumeicon &
 cbatticon &
 # Distribución del teclado
 setxkbmap latam &
-# Dispositivos Automático
+# Dispositivos automático
 udiskie -t &
 # Fuentes Java
 xsettingsd &

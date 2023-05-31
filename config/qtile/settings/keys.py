@@ -8,6 +8,7 @@ from libqtile.command import lazy
 
 # declaro las teclas líderes
 win = "mod4"
+alt = "mod1"
 ctrl = "control"
 shift = "shift"
 tab = "Tab"
@@ -44,27 +45,37 @@ keys = [Key(key[0], key[1], *key[2:]) for key in [
     ([win], punto, lazy.next_screen()),
     ([win], coma, lazy.prev_screen()),
 
-    # Reiniciar qtile
+    # Refrescar configuración de qtile
     ([win, ctrl], "r", lazy.restart()),
 
     # Cerrar sesión
     ([win, ctrl], "q", lazy.shutdown()),
-    
-    ([win], "r", lazy.spawncmd()),
+    # Bloquear pantalla
+    ([win], "l", lazy.spawn("qtile-cmd -o cmd -f lock")),
+    # Apagar dispositivo
+    ([win, alt], "l", lazy.spawn("shutdown -h now")),
 
-    # ------------ Lanzamiento de Programas ------------
-    # Menu para lanzar programas
+    # ------------ Lanzamiento de programas ------------
+    # Rofi
     #([win, ctrl], "r", lazy.spawn("rofi")),
-    #([ctrl], "r", lazy.spawn("ulauncher")),
+    # Ulauncher
+    ([ctrl], "r", lazy.spawn("ulauncher")),
 
-    # Ejecute el navegador
-    ([win], "b", lazy.spawn("google-chrome-stable")),
+    # Lanzar navegador
+    ([win], "b", lazy.spawn("brave-bin")),
+    #([win], "b", lazy.spawn("google-chrome-stable")),
+    #([win], "b", lazy.spawn("google-chrome-stable")),
+    
+    # Lanzar explorador de archivos
+    ([win], "e", lazy.spawn("dolphin")),
+    #([win], "e", lazy.spawn("thunar")),
+    #([win], "e", lazy.spawn("nautilus")),
 
-    # Abra el explorador de archivos
-    ([win], "e", lazy.spawn("nautilus")),
-
-    # Abra la terminal
+    # Lanzar terminal
     ([win], "Return", lazy.spawn("alacritty")),
+    #([win], "Return", lazy.spawn("kitty")),
+    #([win], "Return", lazy.spawn("xterm")),
+    #([win], "Return", lazy.spawn("gnome-terminal")),
 
     # Enciende el modo nocturno
     ([win], "m", lazy.spawn("redshift -O 2400")),
@@ -73,23 +84,31 @@ keys = [Key(key[0], key[1], *key[2:]) for key in [
     # Captura de pantalla automatica y manual
     ([win], "s", lazy.spawn("scrot")),
     ([win, shift], "s", lazy.spawn("scrot -s")),
-     
-    # Otros lanzamientos
+    
+    # Lanzar VSCode
     ([win], "c", lazy.spawn("code")),
+    # Lanzar Intellij IDEA
     ([win], "i", lazy.spawn("idea")),
+    # Lanzar Microsoft Teams
     ([win], "t", lazy.spawn("teams")),
-    ([win, shift], "i", lazy.spawn("gnome-control-center")),
+    # Lanzar programas de gnome
     ([win, shift], "c", lazy.spawn("gnome-calculator")),
+    ([win, shift], "i", lazy.spawn("gnome-control-center")),
     ([win, shift], "p", lazy.spawn("gnome-system-monitor")),
+
+    # Otras Letras Disponibles (a b d g h y u o p ñ x v n)
+    #([win], "a", lazy.spawn("")),
+    #([win], "b", lazy.spawn("")),
+    #([win], "d", lazy.spawn("")),
+    #([win], "g", lazy.spawn("")),
     
-    # Otras Letras Disponibles (t y u o p a f g ñ x v n)
-    #([win], "", lazy.spawn("")),
-    #([win], "", lazy.spawn("")),
-    #([win], "", lazy.spawn("")),
-    
-    # ------------ Configuración de Hardware ------------
+    # ------------ Configuración de hardware ------------
     # Volumen
     ([], "XF86AudioRaiseVolume", lazy.spawn("pactl set-sink-volume @DEFAULT_SINK@ +10%")),
-    ([], "XF86AudioLowerVolume", lazy.spawn("pactl set-sink-volume @DEFAULT_SINK@ -10%")),
+    ([], "XF86AudioLowerVolume", lazy.spawn("pactl set-sink-volume @DEFAULT_SINK@ 10%-")),
     ([], "XF86AudioMute", lazy.spawn("pactl set-sink-mute @DEFAULT_SINK@ toggle")),
+
+    # Brillo
+    Key([], "XF86MonBrightnessUp", lazy.spawn("brightnessctl set +10%")),
+    Key([], "XF86MonBrightnessDown", lazy.spawn("brightnessctl set 10%-")),
 ]]
