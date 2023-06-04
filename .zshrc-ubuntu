@@ -1,0 +1,56 @@
+export ZSH="$HOME/.oh-my-zsh"
+export EDITOR=nvim
+
+ZSH_THEME="ghost"
+
+plugins=(
+    git
+    zsh-autosuggestions
+    fast-syntax-highlighting
+)
+
+ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+ZSH_AUTOSUGGEST_USE_ASYNC=true
+
+source $ZSH/oh-my-zsh.sh
+
+# Alias
+alias czsh="nvim ~/.zshrc"
+alias rzsh="source ~/.zshrc"
+alias ls="ls -la --color=auto"
+alias ..="cd .."
+alias e="exit"
+alias c="clear"
+alias n="nvim"
+alias comcpp="g++ -Wall -Wextra -Wshadow -Wpedantic -Weffc++ -Wvla -Djosuerom -DDEBUG -o ~/workspace/build/cpp-sol.out"
+alias runcpp="~/workspace/build/cpp-sol.out"
+alias runjava="java"
+alias ls="exa -a --color=always --group-directories-first --icons"
+alias ll="exa -la --color=always --group-directories-first --icons"
+alias la="exa -lah --color=always --group-directories-first --icons"
+alias update="sudo apt update -y"
+alias upgrade="sudo apt upgrade -y"
+alias uninstall="sudo apt --purge remove"
+alias update-sys="sudo apt update -y && sudo apt upgrade -y"
+alias autoremove="sudo apt autoremove -y"
+alias install="sudo apt install"
+alias snap-i="sudo snap install"
+alias neo="clear && neofetch"
+alias mhacker="cmatrix"
+alias ip="ifconfig"
+alias ccf="cd ~/workspace/codeforces/solutions/ && nvim"
+alias cwork="cd ~/workspace/ && clear && ls"
+alias tem-cpp="cp -R ~/workspace/templates/tem.cpp"
+alias tem-java="cp -R ~/workspace/templates/tem.java"
+alias mf="touch"
+alias rm="rm -rf"
+alias srm="sudo rm -rf"
+alias home="clear && cd ~"
+alias xampp="clear && cd /opt/lampp/ && ls && ./xampp"
+alias htdocs="clear && cd /opt/lampp/htdocs/ && ls"
+alias down="clear && cd ~/Descargas/ && ls"
+alias minutero-server="clear && shh minutero@rampart.engworks.tech -p 2233"
+alias quitsession="gnome-session-quit"
+
+# More alias here
+#alias =""
