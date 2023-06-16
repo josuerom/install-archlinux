@@ -1,17 +1,17 @@
-# author josuerom
+# Configuration .zshrc by josuerom
 export ZSH="$HOME/.oh-my-zsh"
 export EDITOR=nvim
 
 ZSH_THEME="ghost"
 
 plugins=(
-   git
-   zsh-autosuggestions
-   fast-syntax-highlighting
+    git
+    zsh-autosuggestions
+    fast-syntax-highlighting
 )
-# Command plufgins install
+# Run the following two commands to get the plugins working:
 # git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-# git clone https://github.com/zdharma-continuum/fast-syntax-highlighting ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/fast-syntax-highlighting
+# git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 ZSH_AUTOSUGGEST_USE_ASYNC=true
@@ -26,35 +26,36 @@ alias ..="cd .."
 alias e="exit"
 alias c="clear"
 alias n="nvim"
-alias comcpp="g++ -Wall -Wextra -Wshadow -Wpedantic -Weffc++ -Wvla -Djosuerom -DDEBUG -o ~/workspace/build/cpp-sol.out"
-alias runcpp="~/workspace/build/cpp-sol.out"
-alias runjava="java"
+alias comcpp="g++ -std=c++17 -Wall -Wextra -Wshadow -Wvla -Djosuerom -o ~/workspace/build/tr-sol.out" # file name with the .cpp
+alias runcpp="clear && ~/workspace/build/tr-sol.out"
+alias comjava="javac -d ~/workspace/build/" # filename with the .java
+alias runjava="clear && cd ~/worspace/build && java -Xmx512M -Xss64M -XX:+UseG1GC -DDEBUG=true" # filename without the .java
 alias ls="exa -a --color=always --group-directories-first --icons"
 alias ll="exa -la --color=always --group-directories-first --icons"
 alias la="exa -lah --color=always --group-directories-first --icons"
 alias update="sudo apt update -y"
 alias upgrade="sudo apt upgrade -y"
 alias uninstall="sudo apt --purge remove"
-alias update-sys="sudo apt update -y && sudo apt upgrade -y"
+alias update-s="sudo apt update -y && sudo apt upgrade -y"
 alias autoremove="sudo apt autoremove -y"
 alias install="sudo apt install"
 alias snap-i="sudo snap install"
 alias neo="clear && neofetch"
 alias mhacker="cmatrix"
 alias ip="ifconfig"
-alias ccf="cd ~/workspace/codeforces/solutions/ && nvim"
+alias ccf="cd ~/workspace/codeforces/ && ls"
 alias cwork="cd ~/workspace/ && clear && ls"
-alias tem-cpp="cp -R ~/workspace/templates/tem.cpp"
-alias tem-java="cp -R ~/workspace/templates/tem.java"
+alias tem-cpp="cp -R ~/workspace/templates/tem.cpp A_ && nvim A_"
+alias tem-java="cp -R ~/workspace/templates/tem.java A_ && nvim A_"
 alias mf="touch"
 alias rm="rm -rf"
 alias srm="sudo rm -rf"
 alias home="clear && cd ~"
 alias xampp="clear && cd /opt/lampp/ && ls && ./xampp"
 alias htdocs="clear && cd /opt/lampp/htdocs/ && ls"
-alias down="clear && cd ~/Descargas/ && ls"
+alias des="clear && cd ~/Descargas/ && ls"
 alias minutero-server="clear && shh minutero@rampart.engworks.tech -p 2233"
 alias quitsession="gnome-session-quit"
 
-# More alias here
+# Add more aliases here
 #alias =""
